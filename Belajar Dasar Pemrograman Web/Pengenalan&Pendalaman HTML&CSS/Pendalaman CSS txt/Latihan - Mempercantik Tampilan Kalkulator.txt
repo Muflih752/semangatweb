@@ -1,0 +1,165 @@
+Mempercantik tampilan kalkulator
+Setelah selesai dengan penerapan flexbox untuk tombol kalkulator, selanjutnya kita akan mempercantik bagian lain pada kalkulator. Pada bagian kali ini sebenarnya Anda bisa bebas berekspresi dalam menerapkan styling. Anda bisa gunakan kemampuan seni Anda ditambah pengetahuan CSS yang sudah Anda kuasai.
+
+Tapi jika Anda ingin membuat tampilan kalkulator tampak seperti yang sudah dicontohkan ini:
+
+201912061647152b23aeeac0071db362b9d614558aeb74.png
+
+Anda bisa mengikuti langkah - langkah materi kali ini:
+
+Yang pertama kita akan mempercantik display yang ada pada kalkulator dengan menambahkan background-color, padding, border, dan lain sebagainya. Untuk itu mari kita tetapkan styling pada .display dengan nilai - nilai properti sebagai berikut:
+
+.display {
+   color: white;
+   width: 100%;
+   padding: 10px 20px;
+   background-color: #333333;
+   border: 1px solid black;
+   font-size: 2em;
+}
+Dengan begitu maka display akan tampak seperti ini:
+
+20191206164802218281523f68f00f78fc9d75b77938a9.png
+
+Selanjutnya kita akan membuat tombol kalkulator yang merupakan sebuah operator, fungsi negative dan fungsi equals berwarna orange. Dengan begitu kita perlu menetapkan nilai background-color pada elemen yang memiliki class .operator, .negative, dan .equals.
+
+.operator,
+.negative,
+.equals {
+   background: orange;
+}
+Maka sekarang tombol tersebut akan tampak berwarna orange.
+
+201912061648582e0813a3c8eb18d682d15a2d1dcd3553.png
+
+Lalu kita akan membuat efek card pada calculator agar kalkulator tampak seperti berada pada sebuah kartu yang terdapat bayangan pada tepiannya. Hal ini sudah pernah kita lakukan pada latihan project halaman profile, masih ingat kan?
+
+Buatlah rule styling baru dengan selector .card, dan beri nilai properti seperti di bawah ini:
+
+.card {
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+   border-radius: 5px;
+   padding: 30px;
+   margin-top: 20px;
+}
+Kemudian terapkan dengan menambahkan class card pada flex-container column.
+
+<div class="flex-container-column card">
+Sehingga sekarang kalkulator akan tampak seolah - olah berada di dalam kartu.
+
+20191206165010b120e0424510878c51ff0605ea2ae067.png
+
+Terakhir, kita juga bisa tambahkan sebuah efek lain pada tombol dengan memanfaatkan pseudo-class :hover. Kita buat efek teks menjadi lebih tebal ketika kursor diarahkan pada salah satu tombol. Tambahkan rule dengan selector .button:hover dengan nilai properties berikut.
+
+.button:hover {
+   font-weight: bold;
+}
+Sekarang teks pada tombol akan menjadi tebal ketika terdapat kursor yang diarahkan.
+
+201912061657332605e62a076165726ee40e4183f1c217.gif
+
+
+
+Sejauh ini berikut kode yang ada pada index.html dan style.css:
+
+<!DOCTYPE html>
+<html>
+ 
+<head>
+   <title>Web Calculator</title>
+   <link rel="stylesheet" href="assets/style.css">
+</head>
+ 
+<body>
+   <div class="flex-container-column card">
+       <div class="display">
+           <h1 id="displayNumber">0</h1>
+       </div>
+       <div class="flex-container-row">
+           <div class="button">7</div>
+           <div class="button">8</div>
+           <div class="button">9</div>
+           <div class="button negative">+/-</div>
+       </div>
+       <div class="flex-container-row">
+           <div class="button">4</div>
+           <div class="button">5</div>
+           <div class="button">6</div>
+           <div class="button operator">-</div>
+       </div>
+       <div class="flex-container-row">
+           <div class="button">1</div>
+           <div class="button">2</div>
+           <div class="button">3</div>
+           <div class="button operator">+</div>
+       </div>
+       <div class="flex-container-row">
+           <div class="button clear">CE</div>
+           <div class="button">0</div>
+           <div class="button equals double">=</div>
+       </div>
+   </div>
+</body>
+ 
+</html>
+* {
+   box-sizing: border-box;
+}
+ 
+body {
+   font-family: sans-serif;
+}
+ 
+.flex-container-column {
+   display: flex;
+   /* properti pendukung */
+   flex-direction: column;
+   max-width: 800px;
+   margin: 0 auto;
+   text-align: right;
+}
+ 
+.flex-container-row {
+   display: flex;
+}
+ 
+.button {
+   flex-basis: 25%;
+   /* properti pendukung */
+   font-size: 1.5em;
+   text-align: center;
+   padding: 40px;
+   border: 1px solid black;
+   background: -webkit-linear-gradient(top, #d2d2d2, #ddd);
+   cursor: pointer;
+}
+ 
+.double {
+   flex-basis: 50%;
+}
+ 
+.display {
+   color: white;
+   width: 100%;
+   padding: 10px 20px;
+   background-color: #333333;
+   border: 1px solid black;
+   font-size: 2em;
+}
+ 
+.operator,
+.negative,
+.equals {
+   background: orange;
+}
+ 
+.card {
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+   border-radius: 5px;
+   padding: 30px;
+   margin-top: 20px;
+}
+ 
+.button:hover {
+   font-weight: bold;
+}

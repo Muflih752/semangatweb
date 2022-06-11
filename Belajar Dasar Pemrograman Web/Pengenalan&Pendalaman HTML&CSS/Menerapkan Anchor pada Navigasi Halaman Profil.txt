@@ -1,0 +1,56 @@
+Menerapkan Anchor pada Navigasi Halaman Profil
+Sebelumnya, pada halaman profil yang kita buat, sudah ada sebuah list sebagai navigasi. Namun demikian, karena belum ada elemen anchor, maka navigasi tersebut belum dapat kita gunakan. Oleh karena itu, mari kita tambahkan elemen anchor pada tiap item list-nya.
+
+Silakan buka kembali berkas index.html pada text editor. Tambahkan elemen anchor di setiap item list.
+
+<ul>
+       <li><a href="#">Sejarah</a></li>
+       <li><a href="#">Geografis</a></li>
+       <li><a href="#">Wisata</a></li>
+</ul>
+
+Setelah menambahkan elemen anchor pada item list, maka tampilan item list akan nampak menjadi hyperlink.
+
+20191206101724ce2cf5202d9abd2bc77fec1e70d7a08a.png
+
+Namun ketika salah satu item dipilih, tidak akan terjadi apa apa, karena pada atribut href kita belum menetapkan sebuah target. Nilai href dapat berupa sebuah URL untuk mengarahkan ke sebuah halaman yang berbeda. Selain itu juga berupa tanda pagar (#) diikuti dengan id elemen untuk mengarahkan tampilan pada elemen sesuai id yang ditentukan (masih dalam satu halaman). 
+
+Maka dari itu, mari kita berikan atribut id pada sebuah elemen yang akan menjadi target navigasi. Berikan atribut id pada seluruh elemen <h2> dengan id sesuai dengan kontennya.
+
+<body>
+  .......
+   <ul>
+       <li><a href="#">Sejarah</a></li>
+       <li><a href="#">Geografis</a></li>
+       <li><a href="#">Wisata</a></li>
+   </ul>
+   <h2 id="sejarah">Sejarah</h2>
+ .......
+ 
+   <h2 id="geografis">Geografis</h2>
+ .......
+ 
+   <h2 id="wisata">Wisata</h2>
+ .......
+</body>
+
+Kemudian tuliskan juga id elemen target setelah tanda pagar (#) pada tiap elemen anchor yang terdapat pada item list.
+
+<body>
+  .......
+   <ul>
+       <li><a href="#sejarah">Sejarah</a></li>
+       <li><a href="#geografis">Geografis</a></li>
+       <li><a href="#wisata">Wisata</a></li>
+   </ul>
+   <h2 id="sejarah">Sejarah</h2>
+ .......
+ 
+   <h2 id="geografis">Geografis</h2>
+ .......
+ 
+   <h2 id="wisata">Wisata</h2>
+ .......
+</body>
+
+Setelah menuliskan id elemen pada target anchor, maka hypertext di navigasi sudah dapat digunakan.

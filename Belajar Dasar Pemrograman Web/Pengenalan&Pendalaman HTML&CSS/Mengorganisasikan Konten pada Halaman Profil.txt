@@ -1,0 +1,32 @@
+Mengorganisasikan Konten pada Halaman Profil
+Kita sudah mengenal beberapa elemen yang digunakan untuk mengorganisasikan halaman, seperti <header>, <footer>, <article>, dan yang lainnya. Selain itu, kita juga sudah mengenal generic element yang digunakan untuk mengelompokkan elemen secara umum. Sekarang, saatnya kita mengorganisasikan pada halaman profil yang sudah kita buat sebelumnya.
+
+Sebelum mengorganisasikan konten, mari kita tambahkan sebuah konten untuk diterapkan pada elemen <aside> nantinya. Unduh terlebih dahulu aset gambar yang akan digunakan pada tautan berikut: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Bandung_coa.png/279px-Bandung_coa.png
+
+Simpanlah gambar tersebut pada folder assets -> images bersama dengan empat gambar yang lain dan beri nama bandung-badge.png.
+
+20191206110553aa4bfd2f030fc768005bedeb8e6e0715.png
+
+Kemudian, tuliskan konten berikut di dalam elemen <body> (tuliskan tepat sebelum penutup tag </body>).
+
+<body>
+  <!-- ...... -->
+ 
+  <h2>Kota Bandung</h2>
+  <p>Kota Kembang Paris van Java</p>
+  <figure>
+    <img src="assets/image/bandung-badge.png">
+    <figcaption>Lambang</figcaption>
+  </figure>
+</body>
+
+Tuliskan juga konten copyright berikut tepat setelah tag penutup </figure>.
+
+<body>
+  <!-- ...... -->
+  
+  </figure>
+  <p>Belajar Dasar Pemrograman Web &#169; 2019, Dicoding Academy</p>
+</body>
+
+Setelah menambahkan beberapa konten tersebut, mari saatnya kita organisasikan konten-konten yang ada agar dapat tercipta struktur halaman yang baik.

@@ -1,0 +1,77 @@
+Menerapkan Elemen Tabel pada Halaman Profil
+Setelah kita mengetahui cara menerapkan tabel pada website, mari kita perkaya kembali konten pada halaman profil, khususnya konten pada elemen <aside> yang sudah kita buat. Kita akan menambahkan detail informasi dari kota Bandung seperti negara, luas, bahasa daerah, dan kode telepon. 
+
+Tapi sebelum itu mari kita atur kembali struktur elemen yang di dalam elemen <aside> tersebut. Saat ini elemen <aside> memiliki struktur seperti ini:
+
+20191206151153a53ddd9bbf4ddba66149d082b105f494.png
+
+Karena kita akan menambahkan konten lain, maka kita perlu mengelompokkan kembali seluruh elemen di dalam elemen <article>. Kelompokan atau bungkus seluruh elemen yang ada di dalam elemen <article> dengan elemen <header>, dan buat elemen baru yaitu <section> pada level yang setara dengan elemen <header> tersebut. Pada elemen <section> ini konten tabel akan ditempatkan. Silakan buka kembali berkas index.html dan sesuaikan struktur dalam elemen <aside> seperti berikut ini.
+
+<aside>
+    <article>
+         <header>
+             <h2>Kota Bandung</h2>
+             <p>Kota Kembang Paris van Java</p>
+             <figure>
+                <img src="assets/image/bandung-badge.png">
+                <figcaption>Lambang</figcaption>
+              </figure>
+         </header>
+         <section></section>
+    </article>
+</aside>
+
+Sehingga struktur pada elemen <aside> akan menjadi seperti ini:
+
+201912061514144dc914a9e57a02a762e7c4483c1208ba.png
+
+Selanjutnya pada elemen <section> kita masukkan konten berikut:
+
+Informasi Lainnya
+ 
+Negara
+Indonesia
+ 
+Hari jadi
+25 September 1810
+ 
+Luas Total
+167.67 km2
+ 
+Bahasa Daerah
+Sunda
+ 
+Kode Telepon
++62 22
+
+Sesuaikan konten tersebut dengan menerapkan elemen yang sesuai, salah satunya gunakan elemen tabel untuk menampung sebagian kontennya.
+
+<section>
+   <h3>Informasi Lainnya</h3>
+   <table>
+      <tr>
+         <th>Negara</th>
+         <td>Indonesia</td>
+      </tr>
+      <tr>
+         <th>Hari jadi</th>
+         <td>25 September 1810</td>
+      </tr>
+      <tr>
+         <th>Luas Total</th>
+         <td>167.67 km<sup>2</sup></td>
+      </tr>
+      <tr>
+         <th>Bahasa Daerah</th>
+         <td>Sunda</td>
+      </tr>
+         <tr>
+         <th>Kode Telepon</th>
+         <td>+62 22</td>
+      </tr>
+  </table>
+</section>
+
+Maka pada browser akan tampak seperti gambar berikut:
+
+2019120615234792bb804f1b6f3b6c726e676e7ec69a8c.png

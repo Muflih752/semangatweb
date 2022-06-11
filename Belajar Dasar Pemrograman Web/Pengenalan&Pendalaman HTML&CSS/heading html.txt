@@ -1,0 +1,34 @@
+Heading
+Pada sub-modul sebelumnya, kita sudah melihat contoh penggunaan header yang diterapkan pada konten yang kita siapkan. Kita menggunakan <h1> dan <h2> dalam mengindikasi judul dan sub judul di dalam kontennya. Pada HTML terdapat <h1> hingga <h6> elemen heading yang dapat kita gunakan.
+
+Ketika kita menambahkan heading pada konten, Heading ini merepresentasikan garis besar halaman pada sebuah browser. Alat bantu baca seperti screen reader membaca garis besar halaman untuk bantu memetakan dan mengarahkan pengguna selama menjelajahi halaman. Selain itu, heading juga merupakan elemen yang dicari oleh mesin pencarian contohnya Google Search.
+
+Berikut ini contoh penerapan heading empat level pada sebuah dokumen. Tiap level heading dituliskan dengan cara yang sama.
+
+<h1>Bandung</h1>
+ 
+<h2>Geografis</h2>
+<p>Kota Bandung dikelilingi oleh pegunungan, sehingga bentuk morfologi wilayahnya bagaikan sebuah mangkok raksasa</p>
+ 
+<h2>Wisata</h2>
+<p>Kota Bandung telah menjadi tujuan utama dalam menikmati liburan akhir pekan terutama dari masyarakat yang berasal
+   dari Jakarta sekitarnya.</p>
+ 
+<h3>Farm House Lembang</h3>
+<h4>Lokasi</h4>
+<p>Berada di jalur utama Bandung-Lembang, Farm House menjadi objek wisata yang tidak pernah sepi pengunjung.</p>
+ 
+<h4>Kondisi</h4>
+<p>Selain karena letaknya strategis, kawasan ini juga menghadirkan nuansa wisata khas Eropa. Semua itu diterapkan dalam
+   bentuk
+   spot swafoto Instagramable.</p>
+ 
+<h3>Observatorium Bosscha</h3>
+<p>Memiliki beberapa teleskop, antara lain, Refraktor Ganda Zeiss, Schmidt Bimasakti, Refraktor Bamberg,
+   Cassegrain GOTO, dan Teleskop Surya.</p>
+Dari penggunaan elemen heading pada konten tersebut, maka kita bisa membuat garis besar dokumen seperti berikut:
+
+20191203175534e2e2c35a984e223d39b72943d064e196.png
+
+Pada browser standarnya heading akan ditampilkan dengan tulisan tebal (bold text), dimulai dari h1 dengan ukuran teks paling besar kemudian berurutan sesuai dengan level heading-nya. 
+

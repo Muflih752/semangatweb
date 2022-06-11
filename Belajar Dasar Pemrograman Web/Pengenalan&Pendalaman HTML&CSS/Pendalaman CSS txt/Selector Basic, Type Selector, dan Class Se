@@ -1,0 +1,109 @@
+More about Selector
+Ada banyak jenis selector untuk menargetkan aturan ke elemen tertentu dalam dokumen HTML. Pada sub-modul sebelumnya, kita sudah mengetahui salah satu cara dasar dalam menggunakan selector. Sekarang, mari kita bahas lebih detail mengenai macam macam selector yang ada.
+
+
+
+Selector Basic
+Pada sub-modul sebelumnya kita sudah mengetahui apa itu selector, dan menggunakannya. Yang kita gunakan tersebut merupakan selector basic. Sebenarnya terdapat beberapa macam dari selector basic, yakni:
+
+Type Selector
+Class Selector
+ID Selector
+Attribute Selector
+Universal Selector
+
+Mari kita bahas satu persatu tipe selector basic yang ada.
+
+
+
+Type Selector
+Type Selector menggunakan nama elemen sebagai target untuk diterapkannya rule. Dengan kata lain, ketika menggunakan selector ini tentu rule akan diterapkan pada seluruh elemen target yang ada pada dokumen HTML. Contohnya sebagai berikut:
+
+<!doctype html>
+<html lang="en">
+<head>
+   <title>Judul Dokumen</title>
+   <style>
+      /* Semua elemen span */
+       span {
+           color: red;
+       }
+   </style>
+</head>
+<body>
+<span>Ini merupakan sebuah teks yang berada pada elemen span. Seharusnya elemen ini ditampilkan dengan warna teks merah.</span>
+<p>Ini merupakan sebuah teks yang berada pada elemen paragraf, teks ini tidak seharusnya tidak akan terpengaruh oleh rule.</p>
+<span>Ini merupakan sebuah teks yang berada pada elemen span lainnya. Seharusnya elemen ini ditampilkan dengan warna teks merah juga.</span>
+</body>
+</html>
+Jika berkas tersebut dibuka pada browser, maka teks yang berada pada setiap elemen <span> akan berwarna merah.
+
+20191206170939aff2a79a99303c49ea6cab24a6586da4.png
+
+
+
+Class Selector
+Class selector menetapkan target elemen berdasarkan nilai dari atribut class yang diterapkan pada elemennya. Untuk penulisan selector, awali dengan tanda titik (.) kemudian lanjutkan dengan nama class-nya. Contoh:
+
+<!doctype html>
+<html lang="en">
+<head>
+   <title>Judul Dokumen</title>
+   <style>
+       .red {
+           color: red;
+       }
+ 
+       .skyblue-bg {
+           background-color: skyblue;
+       }
+ 
+       .fancy {
+           font-weight: bold;
+           text-shadow: 4px 4px 3px #77f;
+       }
+   </style>
+</head>
+<body>
+<p class="red">Paragraf dengan teks berwarna merah</p>
+<p class="skyblue-bg">Paragraf dengan background berwarna biru langit</p>
+<p class="fancy">Paragraf dengan gaya fancy</p>
+<p>Paragraf yang menampilkan teks dengan warna standar tanpa menerapkan styling</p>
+</body>
+</html>
+Jika berkas tersebut dibuka pada browser, maka akan nampak seperti ini:
+
+2019120617104826d24e63ad227436e5931769ede38d06.png
+
+Class bersifat shareable, sehingga dapat diterapkan pada banyak elemen dengan tipe elemen yang berbeda-beda. Misalkan sebuah class red dapat diterapkan pada elemen paragraf dan juga heading untuk menampilkan teks berwarna merah.
+
+<h1 class="red">Heading dengan teks berwarna merah</h1>
+<p class="red">Paragraf dengan teks berwarna merah</p>
+Tidak hanya itu, sebuah elemen juga mungkin memiliki banyak nilai class, sehingga kita dapat menerapkan lebih dari satu rule atau gabungan rule pada elemen target. Untuk menggunakannya, pada atribut class kita cukup tuliskan nama kelasnya dan pisahkan tiap nilai kelasnya dengan spasi.
+
+<h1 class="red skyblue-bg">Heading dengan teks berwarna merah dan background biru langit</h1>
+<p class="red fancy">Paragraf dengan teks berwarna merah dan bergaya fancy</p>
+Kita juga bisa menargetkan elemen secara spesifik yang memiliki sebuah class. Bagaimana jika kita ingin menerapkan gaya yang berbeda ketika menggunakan kelas bergaya keren alias fancy pada sebuah paragraf? untuk melakukannya, pada selector kita tuliskan nama elemen target diikuti dengan titik (.) kemudian nama kelasnya. Perhatikan contoh berikut:
+
+<!doctype html>
+<html lang="en">
+<head>
+   <title>Judul Dokumen</title>
+   <style>
+       .fancy {
+           font-weight: bold;
+           text-shadow: 4px 4px 3px #77f;
+       }
+ 
+       p.fancy {
+           text-shadow: 4px 4px 3px #00c8eb;
+       }
+   </style>
+</head>
+<body>
+<h1 class="fancy">Heading dengan teks bergaya fancy</h1>
+<p class="fancy">Paragraf dengan teks bergaya fancy</p>
+</body>
+</html>
+Jika berkas tersebut dibuka pada browser, maka gaya fancy yang diterapkan pada elemen heading dan elemen paragraf akan berbeda.
+

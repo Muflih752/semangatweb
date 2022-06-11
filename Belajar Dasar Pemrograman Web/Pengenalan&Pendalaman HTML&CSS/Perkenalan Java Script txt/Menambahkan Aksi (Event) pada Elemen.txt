@@ -1,0 +1,19 @@
+Menambahkan Aksi (Event) pada Element
+Selain mampu mengakses elemen dalam bentuk objek pada halaman, JavaScript juga mampu menerima event atau kejadian yang terjadi pada elemen. Hal tersebut dinamakan Event Handler. Event bisa berupa interaksi dari pengguna seperti click, atau sekedar mengarahkan kursor pada elemen. Dengan menerapkan event handler, kita dapat menjalankan suatu fungsi tertentu ketika event terjadi pada elemen.
+
+Untuk menambahkan Event Handler pada elemen kita gunakan method, addEventListener() pada target element. Method ini membutuhkan setidaknya dua buah argument.
+
+Yang pertama adalah sebuah string sebagai tipe event-nya. Ada banyak sekali tipe event yang dapat digunakan pada method addEventListener(), Anda bisa melihat secara lengkap pada tautan berikut: https://developer.mozilla.org/en-US/docs/Web/Events. Salah satu yang banyak digunakan adalah “click”. Event ini akan membaca kejadian dimana pengguna melakukan click pada element.
+
+Kemudian yang kedua adalah sebuah fungsi yang akan dijalankan ketika event terjadi. Pada fungsi ini kita dapat memberikan sebuah argumen yang merupakan object yang berisikan informasi tentang action yang terjadi. Termasuk informasi mengenai target elemen event-nya (event.target). Argumen ini biasanya diberikan nama “event”.
+
+Lihat kode berikut untuk menerapkan addEventListener() pada sebuah elemen.
+
+catImage.addEventListener('click', function(event) {
+   document.querySelector('#count').innerText++;
+});
+Dengan menjalankan kode tersebut pada latihan sebelumnya, berarti kita memberikan sebuah event ‘click’ pada elemen catImage. Ketika gambar kucing ditekan akan menjalankan fungsi yang menambahkan nilai konten pada elemen dengan id count.
+
+2019120621165194d0b715801d963efb335915806a7dff.gif
+
+Seperti itulah dasar-dasar dalam memanipulasi DOM dengan menggunakan JavaScript. Untuk mengimplementasikan apa yang sudah kita pelajari, pada materi selanjutnya kita akan coba terapkan logika pada Web Kalkulator agar dapat berfungsi dengan baik.

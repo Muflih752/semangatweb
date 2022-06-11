@@ -1,0 +1,183 @@
+ID Selector
+ID selector menetapkan target elemen berdasarkan nilai dari atribut id yang diterapkan pada elemennya. Sama seperti class, atribut id dapat diterapkan pada seluruh elemen HTML, dan kebanyakan atribut ini digunakan untuk memberikan sebuah arti pada generic element seperti <div> dan <span>. Namun atribut id ini tidak bersifat shareable, yang artinya nilai id ini harus unik dan digunakan pada satu elemen saja.
+
+Untuk menetapkan selector dengan menggunakan id, kita gunakan tanda octothorpe (#) atau lebih familiar disebut dengan hash. Berikut contohnya:
+
+<!doctype html>
+<html lang="en">
+<head>
+   <title>Judul Dokumen</title>
+   <style>
+      #special {
+          background-color: skyblue;
+      }
+   </style>
+</head>
+<body>
+<div id="special">
+   <p>Ini merupakan konten di dalam sebuah div yang diberi id special.</p>
+</div>
+<div>
+   <p>Ini merupakan konten di dalam sebuah div biasa.</p>
+</div>
+</body>
+</html>
+Jika kode di atas dibuka pada browser, maka tampilan akan tampak seperti ini:
+
+20191206173013c3a85e60693d4be94aa802b084b0933b.png
+
+Yang harus kita perhatikan kembali adalah id ini bersifat unik. Jika kita ingin menerapkan sebuah rule pada banyak elemen, sebaiknya gunakan atribut class, bukan dengan id.
+
+<!doctype html>
+<html lang="en">
+<head>
+   <title>Judul Dokumen</title>
+   <style>
+      #special {
+          background-color: skyblue;
+      }
+   </style>
+</head>
+<body>
+<div id="special">
+   <p>Ini merupakan konten di dalam sebuah div yang diberi id special.</p>
+</div>
+<div id="special"> <!-- ini merupakan contoh yang salah dalam penerapan id -->
+   <p>Ini merupakan konten di dalam sebuah div biasa.</p>
+</div>
+</body>
+</html>
+
+
+Attribute Selector
+Attribute selector merupakan cara menetapkan target elemen berdasarkan sebuah atribut yang digunakan atau bahkan bisa lebih spesifik dengan nilainya. Contohnya sebagai berikut:
+
+<!doctype html>
+<html lang="en">
+<head>
+   <title>Judul Dokumen</title>
+   <style>
+       /* <a> element yang menerapkan href attribut */
+       a[href] {
+           color: blue;
+       }
+ 
+       /* <a> element yang menerapkan nilai pada href dengan awalan "#" */
+       a[href^="#"] {
+           background-color: gold;
+       }
+ 
+       /* <a> element yang menerapkan nilai pada href yang mengandung teks "example" */
+       a[href*="example"] {
+           background-color: silver;
+       }
+ 
+       /* <a> element yang menerapkan nilai pada href yang mengandung teks "insensitive" tidak mementingkan huruf kapital*/
+       a[href*="insensitive" i] {
+           color: cyan;
+       }
+ 
+       /* <a> element yang menerapkan nilai pada href dengan akhiran ".org" */
+       a[href$=".org"] {
+           color: red;
+       }
+   </style>
+</head>
+<body>
+<ul>
+   <ul>
+       <li><a href="#internal">Internal link</a></li>
+       <li><a href="http://example.com">Example link</a></li>
+       <li><a href="#InSensitive">Insensitive internal link</a></li>
+       <li><a href="http://example.org">Example org link</a></li>
+   </ul>
+</ul>
+</body>
+</html>
+Jika kode di atas dibuka pada browser, maka tampilan akan tampak seperti ini:
+
+20191206173231a7d36f42e72da21e177440fb8da9c53b.png
+
+Dari kode di atas terlihat banyak sekali kondisi yang dapat diterapkan pada atribut selector. Supaya lebih mudah untuk dipahami, mari kita rangkum dalam sebuah tabel berikut.
+
+Syntax
+
+Description
+
+[attr]
+
+Menargetkan elemen yang menerapkan atribut attr.
+
+[attr=value]
+
+Menargetkan elemen yang menerapkan atribut attr dengan nilai value.
+
+[attr~=value]
+
+Menargetkan elemen yang menerapkan atribut attr dengan salah satu nilainya adalah value.
+
+[attr^=value]
+
+Menargetkan elemen yang menerapkan atribut attr yang nilainya diawali dengan nilai value.
+
+[attr$=value]
+
+Menargetkan elemen yang menerapkan atribut attr yang nilainya diakhiri dengan value.
+
+[attr*=value]
+
+Menargetkan elemen yang menerapkan atribut attr yang nilainya mengadung value.
+
+
+
+Universal Selector
+Universal selector digunakan untuk diterapkan pada seluruh elemen. Tetapi selector ini juga bisa secara spesifik menargetkan sebuah elemen dengan menggabungkan bersama selector yang lainnya. Berikut ini contohnya:
+
+<!doctype html>
+<html lang="id">
+<head>
+   <title>Judul Dokumen</title>
+   <style>
+       /* Menargetkan seluruh tipe elemen */
+       * {
+           color: green;
+       }
+       
+       /* Menargetkan seluruh tipe elemen yang mengandung nilai "en" pada atribut lang */
+       *[lang^=en] {
+           font-style: italic;
+       }
+ 
+       /* Menargetkan seluruh tipe elemen yang memiliki nilai "warning" pada atribut class */
+       *.warning {
+           color: red;
+       }
+ 
+       /* Menargetkan seluruh tipe elemen yang memiliki nilai "content" pada atribut id */
+       *#content {
+           border: 1px solid blue;
+           padding: 20px;
+       }
+   </style>
+</head>
+<body>
+<p>Ini merupakan paragraf biasa atau tidak menerapkan atribut apapun. Maka teks pada paragraf ini akan berwarna
+   hijau</p>
+<p lang="en-us">This is an English paragraph contains en-us value of lang attribute, so this text will be green and
+   italic.</p>
+ 
+<h1>Ini merupakan sebuah header biasa</h1>
+<h1 lang="en-us">This is an English Header</h1>
+ 
+<p class="warning">Perhatikan paragraf ini! Paragraf ini merupakan paragraf yang memiliki kelas bernilai warning,
+   sehingga teks dari paragraf ini akan berwarna merah</p>
+ 
+<div id="content">
+   <p>Ini merupakan sebuah teks di dalam sebuah div yang memiliki id bernilai "content", seharusnya paragraf ini
+       dibungkus dalam border yang memiliki padding 20px</p>
+</div>
+</body>
+</html>
+Hasilnya:
+
+202010081522574db8eede2217c82672c85987810f691a.jpeg

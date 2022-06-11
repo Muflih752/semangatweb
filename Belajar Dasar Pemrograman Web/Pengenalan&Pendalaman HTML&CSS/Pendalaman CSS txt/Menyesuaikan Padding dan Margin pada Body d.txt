@@ -1,0 +1,26 @@
+Menyesuaikan Padding dan Margin pada body dan elemen <main>
+Terakhir kita akan menyesuaikan margin dan padding yang ditampilkan pada body dan elemen <main>. Sehingga akan tampak seperti ini:
+
+20191206215209fd51dc24414ef5c6a3e4d1a6cc7a8bdf.png
+
+Pertama kita hilangkan nilai margin dan padding standar browser dengan menuliskan properti margin dan padding yang diberi nilai 0 pada body selector. 
+
+body {
+   font-family: 'Quicksand', sans-serif;
+   margin: 0;
+   padding: 0;
+}
+Dengan begitu layout yang ditampilkan akan memenuhi seluruh lebar dan tinggi dari jendela browser. 
+
+20191206215340f54cdbd5098286f735f8b6b0f3b20d7d.png
+
+Tetapi konten yang terdapat di dalam elemen <main> perlu sedikit jarak agar konten yang ditampilkan sedikit nyaman untuk dilihat. Kita dapat atur jarak tersebut dengan menambahkan padding pada selector main. Silakan tuliskan rule baru dengan selector main dan beri nilai 20px pada properti padding.
+
+main {
+   padding: 20px;
+}
+Nah sekarang website pun jadi lebih nyaman dilihat.
+
+20191206215716e7fda7f550437d256d467fbfb53a5225.gif
+
+Pada latihan selanjutnya kita akan memindahkan elemen aside sehingga berada di samping elemen content. Untuk melakukannya kita harus mengenal dulu apa itu positioning dan floating. Sampai jumpa di materi selanjutnya ya!

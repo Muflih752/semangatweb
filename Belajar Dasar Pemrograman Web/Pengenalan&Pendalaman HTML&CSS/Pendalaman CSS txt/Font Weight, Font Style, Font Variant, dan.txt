@@ -1,0 +1,45 @@
+font-weight
+Setelah mengenal font families dan font size, selanjutnya ada juga font-weight yang digunakan untuk mengatur ketebalan dari font yang ditampilkan. Nilai dari properti ini dapat ditentukan dengan menggunakan numeric values (100 sampai 900) atau dengan menggunakan descriptive terms (normal, bold, bolder, dan lighter). 
+
+201912061822562b938f2bf9e6f42840a8c7f455ba9eca.png
+
+Properti font-weight dapat diaplikasikan ke seluruh elemen yang ada di HTML dan nilainya dapat diturunkan pada elemen turunannya.
+
+
+
+font-style
+Properti selanjutnya adalah font-style. Properti ini digunakan untuk menentukan postur dari teks yang ditampilkan, apakah bentuknya vertikal (normal) atau miring (italic dan oblique).
+
+2019120618245944a3aba0157332b2c21fb6ee625e83cb.png
+
+Italic dan oblique keduanya menampilkan teks yang miring. Perbedaanya adalah italic menerapkan tipe miring (italic font version) dari suatu font sedangkan oblique adalah font normal yang hanya dibuat miring.
+
+Properti font-style dapat diaplikasikan ke seluruh elemen yang ada di HTML dan nilainya dapat diturunkan pada elemen turunannya.
+
+
+
+font-variant
+Kita yang terbiasa dengan aplikasi document editor (rich text) seperti Microsoft Word, tentu tahu atau sudah mencoba fitur small caps. Fitur ini dapat membuat teks menjadi kapital tetapi dituliskan secara kecil dan merapat, seperti ini:
+
+2019120618260941081d1a63bc20c02965d60168b3bc0d.png
+
+Untuk membuat tulisan seperti gambar di atas, kita bisa memanfaatkan properti font-variant dengan nilai small-caps pada propertinya.
+
+Properti font-variant dapat diaplikasikan ke seluruh elemen yang ada di HTML dan nilainya dapat diturunkan pada elemen turunannya.
+
+
+
+Shorthand
+Menspesifikasikan masing-masing nilai properti font akan menghasilkan banyak sekali kode repetitif. Dengan begitu CSS memberikan suatu “jalan pintas” untuk menuliskan properti-properti tersebut ke dalam satu properti yaitu font. 
+
+Dengan menggunakan properti font kita dapat menuliskan beberapa properti hanya dalam satu properti pada satu rule.
+
+20191206182718e32a63b138ff79239e9cace82e1a6e7f.png
+
+Nilai dari properti font merupakan nilai dari seluruh properti dari font yang sudah kita bahas. Tiap nilai dipisahkan menggunakan spasi. Pada properti ini urutan nilai merupakan hal yang penting, sehingga jangan sampai salah urutan dalam menuliskannya. Kesalahan penulisan atau urutan menyebabkan seluruh struktur rule menjadi tidak valid.
+
+Walaupun begitu kita bisa tidak menuliskan seluruh nilai properti yang ada, tetapi nilai dari properti font-size dan font-family wajib ada ketika menggunakan properti ini. Berikut contohnya penulisan minimal ketika kita menggunakan properti font:
+
+p {
+   font: 1em sans-serif;
+}

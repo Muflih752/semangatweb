@@ -1,0 +1,13 @@
+Comment
+Pada JavaScript juga terdapat fitur komentar. Seluruh teks yang dituliskan pada tanda komentar akan diabaikan (tidak dianggap ada) atau tidak akan dieksekusi. Dalam komentar ini kita bisa menuliskan teks untuk mengingatkan atau menjelaskan kode yang kita tuliskan. Hal ini bisa saja berguna jika kode yang kita tuliskan akan diubah oleh orang lain. Tapi ingat, jangan terlalu berupaya dalam menuliskan komentar yang sebenarnya tidak perlu dituliskan.
+
+Terdapat dua metode ketika memberikan komentar. Untuk memberikan komentar pada satu baris saja, kita bisa gunakan tanda dua buah garis miring (//) pada awal barisnya.
+
+// ini merupakan komentar satu baris komentar
+// alert("Terima kasih")
+Sedangkan untuk menggunakan komentar lebih dari satu baris (multiple lines comment) kita bisa gunakan tanda /* sebagai pembuka komentar dan tanda */ sebagai penutup komentar. Teks apapun yang berada di antara tanda tersebut akan dijadikan komentar dan tidak akan dieksekusi.
+
+/* Ini merupakan komentar dengan lebih dari satu baris
+Teks apapun yang berada disini akan dijadikan komentar.
+Ketika menggunakan ini, jangan lupa untuk menutupnya.
+*/

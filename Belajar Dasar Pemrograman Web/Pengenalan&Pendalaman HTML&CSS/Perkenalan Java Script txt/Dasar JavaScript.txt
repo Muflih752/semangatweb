@@ -1,0 +1,13 @@
+Dasar JavaScript
+Wajar jika kita menemukan banyak buku JavaScript dengan halaman super tebal karena memang banyak sekali bahasan seputar JavaScript ini. Tetapi pada materi ini kita rangkum menjadi beberapa pembahasan penting yang Anda perlu ketahui. Tujuannya agar Anda familier dengan dasar - dasar JavaScript. Dengan memahami dasar-dasar JavaScript, nantinya diharapkan kita dapat terus berlatih sehingga terbiasa dengan penggunaan sintaksnya.
+
+Ketika mempelajari bahasa pemrograman apapun pertama kita harus memahami logika yang mendasari dari penulisan script, meskipun secara sintaksis setiap bahasa pemrograman berbeda namun secara umum logikanya akan sama.
+
+Maka dari itu hindari belajar dengan cara menghafal seluruh struktur kode yang dituliskan, tapi belajarlah dengan memahami tujuan dari kode yang dituliskan. Dengan memahami kode-kode yang ada dan dipadukan logika maka kita akan mudah dalam menghadapi suatu masalah - masalah yang ada ketika mengembangkan suatu aplikasi/web.
+
+Pada akhir materi ini, kita akan mengenal tentang variabel, array, operator komparasi, if else statement dan masih banyak lagi. Sudah siap belajar?
+
+Mungkin selama pembelajaran dasar JavaScript kita perlu mencoba coba kode yang sedang dipelajari, kami menyediakan interaktif kode yang bisa Anda jalankan dan ubah secara langsung. Selain itu Anda bisa gunakan tools online seperti glot.io ketika menjalankan kodenya. Atau Anda juga bisa mencobanya langsung pada console browser melalui DevTools. Silakan baca artikel berikut sebelum melanjutkan pada materi selanjutnya:
+
+Glot.io: Code Editor dan Compiler Online Terbaik
+Get Started With Running JavaScript In The Console

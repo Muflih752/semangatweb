@@ -1,0 +1,85 @@
+Spanning Cell
+Terkadang kita membutuhkan sebuah sel yang mencakup untuk dua kolom ataupun dua baris sekaligus. Dalam aplikasi seperti Microsoft Excel, hal ini biasa kita kenal sebagai merging cell atau menggabungkan dua atau lebih sebuah sel. Ini memang menjadi sebuah fitur dasar dalam membuat sebuah tabel. Sehingga, pada HTML pun kita dapat melakukan hal tersebut. 
+
+Pada HTML hal ini lebih dikenal sebagai Spanning cell yang artinya menjangkau atau merentangkan sebuah ukuran sel lebih dari ukuran yang biasanya. Dengan spanning cell kita dapat membuat sebuah tabel yang lebih kompleks, tetapi akan membuat markup yang kita tulis menjadi sedikit sulit dibaca.
+
+
+
+Column Spans
+Untuk merentangkan sebuah kolom (column spanning) kita bisa menggunakan atribut colspan pada elemen <td> atau <th>. Berikut contoh untuk penggunaan atribut colspan sehingga sebuah header mencangkup dua kolom.
+
+<table>
+   <tr>
+       <th>18:00</th>
+       <th>19:00</th>
+       <th>20:00</th>
+   </tr>
+   <tr>
+       <td colspan="2">Avenger Infinity Wars</td>
+       <td>It Chapter 2</td>
+   </tr>
+   <tr>
+       <td>One Piece: Stampede</td>
+       <td>Weathering With You</td>
+       <td>Gundala</td>
+   </tr>
+   <tr>
+       <td>Gundala</td>
+       <td colspan="2">Avenger Infinity Wars</td>
+   </tr>
+</table>
+
+Maka sebuah elemen yang menggunakan atribut colspan akan mencakup ruang kolom sesuai nilai dari atribut itu sendiri.
+
+201912061501544586e8f264cccb836cf4dcdcf9da6cd5.png
+
+Untuk lebih jelasnya, kita bisa tambahkan atribut border pada elemen <table> agar terdapat garis pada tepi selnya. Value yang diberikan pada atribut ini berupa integer dalam pixel.
+
+<table border="1">
+   <tr>
+       <th>18:00</th>
+       <th>19:00</th>
+       <th>20:00</th>
+   </tr>
+   <tr>
+       <td colspan="2">Avenger Infinity Wars</td>
+       <td>It Chapter 2</td>
+   </tr>
+   <tr>
+       <td>One Piece: Stampede</td>
+       <td>Weathering With You</td>
+       <td>Gundala</td>
+   </tr>
+   <tr>
+       <td>Gundala</td>
+       <td colspan="2">Avenger Infinity Wars</td>
+   </tr>
+</table>
+
+Tampilan pada browser:
+
+201912061504091a51240590398040f6add10f9ac9c577.png
+
+
+
+Row Spans
+Untuk merentangkan sebuah baris (row spanning) kita dapat menggunakan atribut rowspan. Sama seperti column spanning, tetapi atribut ini akan merentangkan sebuah sel ke bawah. Berikut contohnya.
+
+<table border="1">
+   <tr>
+       <th rowspan="3">18:00</th>
+       <td>Avenger Infinity Wars</td>
+   </tr>
+   <tr>
+       <td>One Piece: Stampede</td>
+   </tr>
+   <tr>
+       <td>Gundala</td>
+   </tr>
+</table>
+
+Perhatikan elemen <th> yang diberi nilai atribut rowspan. Elemen tersebut berada pada baris pertama dan akan memanjang menjadi tiga baris ke bawahnya. Jadi pada baris tersebut kita membutuhkan dua buah elemen (<th> dan <td>) dan pada baris selanjutnya (baris dua dan tiga) kita hanya perlu satu buah elemen <td> saja di dalam elemen <tr> setelahnya. Sehingga jika dilihat pada browser akan nampak seperti ini:
+
+20200619140837cb37ceb7c1909b02d5a0d6b32afc57e2.jpeg
+
+Catatan: Sayangnya pada contoh kode diatas, penggunaan atribut border pada elemen <table> sudah deprecated (usang) sehingga kita tidak direkomendasikan untuk menggunakannya. Solusi masalah ini adalah menggunakan property border pada stylesheet. Keterangan ini dapat lebih lengkap dipelajari pada situs MDN ini.

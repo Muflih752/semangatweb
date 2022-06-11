@@ -1,0 +1,28 @@
+Responsibilitas pada tampilan mobile
+Sejauh ini layout kalkulator yang kita buat sudah cukup baik, namun apakah sudah cukup baik juga ketika tampil pada device mobile? Untuk melihatnya, kita bisa coba dengan menggunakan Dev Tools pada browser kita.
+
+20191206165323634bb0db2f7fc22bd2e2caadb055959e.jpeg
+
+Gambar di atas merupakan kalkulator yang kita buat di akses melalui device Google Pixel 2 XL. Tampilan kalkulator sudah responsif namun, teks tombol masih terlalu kecil tampilannya. Aspek aksesibilitas penggunanya, kurang.
+
+Agar tampilan lebih optimal pada viewport mobile devices, pertama kita tambahkan meta tag viewport pada index.html agar tampilan dapat menyesuaikan dengan beberapa layar yang berbeda.
+
+<head>
+   <title>Web Calculator</title>
+   <link rel="stylesheet" href="assets/style.css">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+Dengan begitu ukuran teks dan box dimension akan disesuaikan pada mobile devices. Namun tampilan tombol akan overflow karena padding pada tiap tombol yang kita tentukan terlalu besar.
+
+2019120616545141c75b4029d716641a45cb766ca859e6.png
+
+Pada situasi ini kita dapat menggunakan @media query untuk menetapkan nilai padding yang pas ketika di akses pada mobile device. Tuliskan rule berikut pada styles.css:
+
+@media screen and (max-width: 513px) {
+   .button {
+       padding: 10px;
+   }
+}
+Sekarang tampilan tombol akan menerapkan nilai padding yang lebih kecil ketika diakses menggunakan ukuran layar dengan lebar di bawah 513px.
+
+20191206165624ed0495fcb95bab6adb560f89697905a3.png

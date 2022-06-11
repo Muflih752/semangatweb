@@ -1,0 +1,76 @@
+Text Color (Foreground Color)
+Pada sub-modul Pendahuluan Styling kita sudah mencoba bagaimana mudahnya mengganti warna pada teks yang ditampilkan. Sejujurnya tidak ada lagi yang perlu kita bahas disini. Kita dapat dengan mudahnya mengganti warna teks dengan properti color.
+
+201912062016317d1478ff740b67bbf5cc20aad8622b25.png
+
+Nilai dari properti color dapat berupa predefined color name atau sebuah numeric value dengan menggunakan RGB, RGBA, HEX, HSL, ataupun HSLA. Berikut sebagai contoh, seluruh elemen <p> akan diberi warna abu-abu (gray) dengan menggunakan beberapa cara yang ada:
+
+p { color: gray; }
+p { color: #666666; }
+p { color: #666; }
+p { color: rgb(102,102,102); }
+Catatan: Terdapat dua cara dalam penetapan nilai color menggunakan format hexadecimal, yaitu dengan menyebutkan digit hexadecimal secara lengkap (6 digit) dan menyebutkan tiga digit (paling sedikit) hexadecimal. Pada contoh diatas, nilai #666666 dan #666 memiliki hasil yang sama. Artinya setiap digit dari #666 akan melakukan duplikasi dari digit pertama ke digit kedua, digit ketiga ke digit keempat dan digit kelima ke digit keenam, sesuai urutan pendefinisiannya.
+
+Properti color dapat diaplikasikan ke seluruh elemen yang ada pada HTML dan nilainya dapat diturunkan pada elemen turunannya. Jadi kita bisa mengubah warna teks pada seluruh dokumen HTML dengan menerapkan properti color pada elemen <body>, seperti ini:
+
+body {
+   color: steelblue;
+}
+Sehingga tampak seperti ini:
+
+2019120620182321588b2d4335e9302a69da597b149d79.png
+
+
+
+Background Color
+CSS memperlakukan setiap elemen HTML seperti berada pada sebuah kotak (kita akan mempelajari ini pada pembahasan box model). Properti background-color dapat mengatur warna latar belakang dari kotak tersebut. 
+
+Sama seperti text color, kita dapat menspesifikasikan warna yang dipilih dengan numeric values atau dengan predefined color name. Properti background-color akan bernilai transparan jika tidak kita tetapkan (default).
+
+Kebanyakan browser menetapkan nilai putih sebagai standar untuk nilai background-color, tetapi nilai standar tersebut dapat pengguna ubah menggunakan pemilihan mode cerah atau mode gelap pada pengaturan browser-nya. Maka untuk memastikan website kita memiliki tampilan background color putih, kita dapat terapkan nilai background-color: white; pada elemen <body>.
+
+Biasanya kita juga menerapkan padding saat menetapkan background-color guna memberi jarak antara konten dan tepi kotak elemen.
+
+<!doctype html>
+<html lang="en">
+<head>
+   <style>
+       body {
+           font-family: sans-serif;
+       }
+ 
+       div#content {
+           background-color: rgb(200, 200, 200);
+           padding: 20px 15px;
+       }
+ 
+       #content > h2 {
+           background-color: #4c5450;
+           padding: 15px;
+           color: white;
+       }
+ 
+       #content > h3 {
+           background-color: #60d0a8;
+           padding: 15px;
+           color: white;
+       }
+ 
+       #content > p {
+           background-color: hsl(56, 62%, 85%);
+           padding: 20px;
+       }
+   </style>
+</head>
+<body>
+<div id="content">
+   <h2>Lorem Ipsum</h2>
+   <h3>Dolor sit amet lorem ipsum</h3>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus officiis perspiciatis quidem ratione? Distinctio eos ex expedita iusto necessitatibus velit, veritatis. Aliquid, debitis dignissimos in iusto magnam nulla sed tempora.</p>
+</div>
+</body>
+</html>
+Jika berkas di atas dijalankan pada browser, maka hasilnya akan tampak seperti ini:
+
+2019120620203336439a0eb2f7e0f243ce2a7c06fc03ac.png
+

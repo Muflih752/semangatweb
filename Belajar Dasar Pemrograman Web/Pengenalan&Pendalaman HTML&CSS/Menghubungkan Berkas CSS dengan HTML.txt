@@ -1,0 +1,30 @@
+Menghubungkan Berkas CSS dengan HTML
+Setelah kita menuliskan rules pada berkas style.css, kita perlu menghubungkan berkas tersebut dengan berkas HTML sebagai stylesheet agar elemen HTML yang ditampilkan dapat menerapkan rules CSS yang kita terapkan.
+
+Silakan kita buka kembali berkas index.html, kemudian tambahkan kode berikut di dalam elemen <head>:
+
+<link rel="stylesheet" href="assets/styles/style.css">
+Sehingga keseluruhan kode pada elemen head nampak seperti ini:
+
+<head>
+   <title>Kota Bandung</title>
+   <link rel="stylesheet" href="assets/styles/style.css">
+</head>
+Simpan perubahan pada berkas index.html, kemudian coba buka berkas tersebut menggunakan browser. Jika kita berhasil menerapkan styling pada berkas HTML, maka pada browser akan tampak seperti ini:
+
+20191206161928845954839b72c361271ab53fb3c09faa.png
+
+Perubahan pertama terjadi pada tipe font yang ditampilkan pada seluruh konten yang terdapat di dalam elemen body.
+
+201912061621047f395cd000c278416526881c93352203.png
+
+Kemudian perubahan selanjutnya ada pada elemen <h2> dan <h3> dengan perubahan warna pada teksnya.
+
+20191206162139224cf7862a7e4602a6cb0a3610ed9d1b.png
+
+Dan perubahan terakhir ada pada elemen <footer> yang berada pada bawah halaman. Elemen ini akan menerapkan warna background menjadi biru, teks yang ada di dalamnya berwarna putih dan terdapat padding dalam menampilkan kontennya.
+
+201912061622095b42f5d244ed287845b84989d6d02015.png
+
+Selamat! Kita sudah berhasil menerapkan styling dasar pada halaman HTML. Pada materi selanjutnya, kita akan membahas lebih detail mengenai styling dan kita akan belajar menyusun layout agar peletakkan elemen dapat lebih presisi.
+

@@ -1,0 +1,4 @@
+https://fonts.google.com/.
+
+Sebenarnya google font menggunakan teknik yang sama, yakni menggunakan @font-face. Jika kita coba buka URL yang ada pada script @import tadi pada browser, hasilnya adalah  sebuah kode CSS di mana terdapat banyak @font-face dituliskan disana. 
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');

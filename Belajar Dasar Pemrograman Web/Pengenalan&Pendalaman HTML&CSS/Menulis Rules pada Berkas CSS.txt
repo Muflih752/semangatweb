@@ -1,0 +1,43 @@
+Menulis Rules pada Berkas CSS
+Untuk latihan awal, kita bisa coba menuliskan sebuah rule styling pada beberapa elemen HTML yang ada pada latihan sebelumnya.
+
+Yang pertama, tetapkan tipe font ‘sans-serif’ sebagai font yang digunakan pada seluruh elemen yang ada di dalam <body>. Silakan buka berkas style.css yang sudah kita buat pada text editor dan tuliskan kode berikut:
+
+body {
+   font-family: sans-serif;
+}
+Yang kedua, kita tetapkan juga warna pada setiap elemen <h2> dan <h3> yang digunakan pada berkas HTML dengan menuliskan kode sebagai berikut:
+
+h2 {
+   color: #00a2c6;
+}
+ 
+h3 {
+   color: #00a2c6;
+}
+Dan yang terakhir, kita coba ubah warna background dan warna teks pada elemen <footer>, serta beri sebuah padding.
+
+footer {
+   padding: 20px;
+   color: white;
+   background-color: #00a2c6
+}
+Sehingga keseluruhan kode pada berkas style.css akan nampak seperti ini:
+
+body {
+   font-family: sans-serif;
+}
+ 
+h2 {
+   color: #00a2c6;
+}
+ 
+h3 {
+   color: #00a2c6;
+}
+ 
+footer {
+   padding: 20px;
+   color: white;
+   background-color: #00a2c6;
+}

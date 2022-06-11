@@ -1,0 +1,71 @@
+Combinators
+Kita sudah mengetahui beberapa basic selector yang ada pada CSS. Tidak hanya sampai disitu, CSS Selector dapat berisi lebih dari satu basic selector. Di antara basic selector, kita dapat menyertakan sebuah kombinator.
+
+Ada empat kombinator yang dapat kita gunakan yaitu: Adjacent Sibling Selector, General Sibling Selector, Child Selector, dan Descendant Selector.
+
+
+
+Adjacent Sibling Selector (+)
+Adjacent Sibling Selector menggabungkan dua buah basic selector dengan menggunakan tanda + di antara keduanya. Contohnya seperti ini:
+
+img + p {
+   color: green;
+}
+Adjacent Sibling Selector terdiri dari dua buah target elemen, namun hanya elemen kedua yang menerapkan rule selama elemen tersebut dituliskan langsung setelah elemen pertama pada berkas HTML. Selain itu kedua elemen tersebut harus berada di dalam induk elemen yang sama. Pada contoh di atas rule akan diterapkan pada elemen paragraf yang berada tepat setelah elemen gambar. Berikut contoh penerapannya:
+
+<!doctype html>
+<html lang="en">
+<head>
+   <title>Judul Dokumen</title>
+   <style>
+       /* Rule akan diterapkan pada elemen paragraf yang berada tepat setelah elemen img */
+       img + p {
+           color: green;
+       }
+   </style>
+</head>
+<body>
+<p>Ini merupakan paragraf pertama. Rule styling tidak akan diterapkan pada elemen paragraf ini.</p>
+<img src="https://i.imgur.com/cs2BJzw.jpg" alt="Dicoding logo" width="400px">
+<p>Ini merupakan paragraf kedua dan ditetapkan setelah elemen gambar. Maka paragraf ini seharusnya menerapkan rule dengan menampilkan teks berwarna hijau.</p>
+<p>Ini merupakan paragraf ketiga. Letaknya memang setelah elemen gambar, namun tidak diletakkan persis setelahnya, sehingga rule tidak akan diterapkan pada elemen ini.</p>
+</body>
+</html>
+Jika berkas di atas dijalankan pada browser, maka akan menghasilkan tampilan seperti berikut:
+
+201912061740003bd2e2e876b782d33f749ddeb76cd814.png
+
+
+
+General Sibling Selector (~)
+Mirip seperti Adjacent Sibling Selector namun rules akan diterapkan pada seluruh elemen kedua yang berada setelah elemen pertama. Dengan catatan, induknya sama, walaupun posisi dari elemen kedua tidak berada tepat setelahnya. General Sibling Selector menggunakan tanda ~ untuk menetapkan elemenya. Contohnya seperti berikut:
+
+img ~ p {
+   color: green;
+}
+Rule di atas akan diterapkan pada elemen paragraf yang berada setelah elemen img selama masih di dalam induk yang sama.
+
+<!doctype html>
+<html lang="en">
+<head>
+   <title>Judul Dokumen</title>
+   <style>
+       /* Rule akan diterapkan pada elemen header yang berada tepat setelah elemen img */
+       img ~ p {
+           color: green;
+       }
+   </style>
+</head>
+<body>
+<p>Ini merupakan paragraf pertama. Rule styling tidak akan diterapkan pada elemen paragraf ini.</p>
+<img src="https://i.imgur.com/cs2BJzw.jpg" alt="Dicoding logo" width="400px">
+<p>Ini merupakan paragraf kedua dan ditetapkan setelah elemen gambar. Maka paragraf ini menerapkan rule dengan menampilkan teks berwarna hijau.</p>
+<div>
+   <p>Ini merupakan paragraf ketiga, letaknya setelah elemen gambar, namun paragraf ini dibungkus di dalam div sehingga paragraf ini tidak akan menerapkan rule styling karena tidak memiliki induk yang sama.</p>
+</div>
+<p>Ini merupakan paragraf empat. Letaknya memang setelah elemen gambar dan memiliki induk yang sama seperti elemen gambar, sehingga elemen ini akan menerapkan rule dengan menampilkan teks berwarna hijau.</p>
+</body>
+</html>
+Jika berkas di atas dijalankan pada browser, maka akan menghasilkan tampilan seperti berikut:
+
+2019120617413900ab76e2491a5487f5f1105c0089c1ff.png

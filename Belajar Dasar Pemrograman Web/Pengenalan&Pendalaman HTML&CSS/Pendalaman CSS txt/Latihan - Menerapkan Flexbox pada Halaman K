@@ -1,0 +1,148 @@
+Menerapkan Flexbox pada Halaman Kalkulator
+Setelah kita selesai membuat struktur HTML, selanjutnya kita akan percantik elemen - elemen tersebut dengan styling.
+
+Buatlah folder baru di dalam project WebCalculator dan berikan nama “assets”. Kemudian di dalam folder tersebut buatlah berkas css dan berikan nama “style.css”. Sehingga struktur project kita saat ini akan tampak seperti ini:
+
+20191206163937f385de98c687ee6202a3475cd7bbdd5c.png
+
+Struktur project WebCalculator
+
+Sebelum memulai menuliskan styling pada CSS, jangan lupa untuk hubungkan berkas style.css sebagai stylesheet pada index.html. Tuliskan tag <link> berikut ini di dalam elemen <head>:
+
+<link rel="stylesheet" href="assets/style.css">
+Untuk memulai menuliskan styling, kita buka berkas style.css. Kita mulai dengan membuat seluruh elemen menerapkan nilai border-box pada properti box-sizing. Tuliskan rule berikut pada berkas style.css.
+
+* {
+   box-sizing: border-box;
+}
+Lalu kita tetapkan font-family pada seluruh teks yang ada di dalam body dengan menggunakan sans-serif.
+
+body {
+   font-family: sans-serif;
+}
+Selanjutnya kita mulai terapkan flexbox pada .flex-container-column dengan memberikan nilai flex pada properti display. Jangan lupa tetapkan properti flex-direction: column dan properti pendukung lainnya. Sehingga styling .flex-container-column akan tampak seperti berikut:
+
+.flex-container-column {
+   display: flex;
+   flex-direction: column;
+ 
+   /* properti pendukung */
+   max-width: 800px;
+   margin: 0 auto;
+   text-align: right;
+}
+Terapkan juga properti display: flex pada .flex-container-row. Namun kita tidak harus menerapkan flex-direction pada elemen ini, karena nilai row sudah menjadi default pada flex-container. Sehingga penulisan styling untuk .flex-container-row cukup dituliskan seperti berikut:
+
+.flex-container-row {
+   display: flex;
+}
+Mari kita lanjut atur styling untuk tombol kalkulatornya. Pada tiap .button kita akan beri nilai flex-basis sebesar 25% beserta properti pendukung lainnya sehingga tombol kalkulator akan memenuhi seluruh ruang kosong pada container. Tuliskan styling berikut untuk .button:
+
+.button {
+   flex-basis: 25%;
+  
+   /* properti pendukung */
+   font-size: 1.5em;
+   text-align: center;
+   padding: 40px;
+   border: 1px solid black;
+   background: -webkit-linear-gradient(top, #d2d2d2, #ddd);
+   cursor: pointer;
+}
+Simpan berkas style.css dan coba buka index.html pada browser. Tampilan akan nampak seperti ini:
+
+2019120616431918399625bc31d913ef499f1dcc2a2910.png
+
+Sekarang sudah terlihat tampilan kalkulator pada umumnya, bukan? Tombol kalkulator akan memenuhi seluruh ruang kosong pada container terkecuali tombol yang terdapat pada flex-container-row terakhir karena jumlah button nya hanya tiga buah.
+
+Agar kontainer terisi penuh, kita buat tombol equals (=) memiliki nilai flex-basis: 50% sehingga tombol tersebut memiliki besar 2 kali dibandingkan dengan tombol yang lainnya. Tambahkan nilai class “double” pada tombol tersebut.
+
+<div class="button equals double">=</div>
+Kemudian tetapkan nilai flex-basis: 50%; pada .double seperti berikut:
+
+.double {
+   flex-basis: 50%;
+}
+Sehingga sekarang tampilan button pada browser akan tampak seperti ini:
+
+201912061644228cd858fa710f22acb2aa5f8f5b94513b.png
+
+Sejauh ini kode yang terdapat pada style.css dan index.html akan tampak seperti berikut:
+
+* {
+   box-sizing: border-box;
+}
+ 
+body {
+   font-family: sans-serif;
+}
+ 
+.flex-container-column {
+   display: flex;
+ 
+   /* properti pendukung */
+   flex-direction: column;
+   max-width: 800px;
+   margin: 0 auto;
+   text-align: right;
+}
+ 
+.flex-container-row {
+   display: flex;
+}
+ 
+.button {
+   flex-basis: 25%;
+ 
+   /* properti pendukung */
+   font-size: 1.5em;
+   text-align: center;
+   padding: 40px;
+   border: 1px solid black;
+   background: -webkit-linear-gradient(top, #d2d2d2, #ddd);
+   cursor: pointer;
+}
+ 
+.double {
+   flex-basis: 50%;
+}
+<!DOCTYPE html>
+<html>
+ 
+<head>
+   <title>Web Calculator</title>
+   <link rel="stylesheet" href="assets/style.css">
+</head>
+ 
+<body>
+   <div class="flex-container-column">
+       <div class="display">
+           <h1 id="displayNumber">0</h1>
+       </div>
+       <div class="flex-container-row">
+           <div class="button">7</div>
+           <div class="button">8</div>
+           <div class="button">9</div>
+           <div class="button negative">+/-</div>
+       </div>
+       <div class="flex-container-row">
+           <div class="button">4</div>
+           <div class="button">5</div>
+           <div class="button">6</div>
+           <div class="button operator">-</div>
+       </div>
+       <div class="flex-container-row">
+           <div class="button">1</div>
+           <div class="button">2</div>
+           <div class="button">3</div>
+           <div class="button operator">+</div>
+       </div>
+       <div class="flex-container-row">
+           <div class="button clear">CE</div>
+           <div class="button">0</div>
+           <div class="button equals double">=</div>
+       </div>
+   </div>
+</body>
+ 
+</html>

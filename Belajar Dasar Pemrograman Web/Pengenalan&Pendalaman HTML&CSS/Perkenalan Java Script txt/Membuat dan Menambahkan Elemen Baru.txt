@@ -1,0 +1,22 @@
+Membuat dan Menambahkan Elemen Baru
+Sebenarnya terdapat beberapa cara dalam membuat elemen HTML baru menggunakan JavaScript. Bahkan kita bisa gunakan langsung properti innerHTML dengan menuliskan langsung tag HTML-nya kemudian menggabungkan dengan nilai yang ada pada elemen (appending). Tapi ini bukan pendekatan yang baik.
+
+Dalam membuat elemen baru, DOM telah menyediakan method yang bernama createElement().
+
+let newElement = document.createElement('p');
+2019120621141743158c5511e075447353ba40bf10a4c7.gif
+
+Dengan menjalankan perintah tersebut maka terciptalah elemen paragraf baru yang diinisialisasi pada variabel newElement.
+
+Pada variabel newElement kita dapat memberikan nilai konten dengan menggunakan properti innerHTML ataupun innerText.
+
+newElement.innerHTML = 'Anda menekan gambar kucing sebanyak <span id="count">0</span> kali';
+20191206211515600ba2d56fd0b189be4cb53fb086137a.gif
+
+Walaupun sekarang variabel newElement sudah memiliki konten di dalamnya, tetapi mengapa belum muncul pada jendela browser? Hal tersebut karena fungsi createElement() hanya akan membuat sebuah elemen baru, tidak berarti ia akan memasukkannya ke dalam document.body.
+
+Agar elemen baru tampil pada jendela browser, kita perlu memasukkan elemen tersebut pada body dengan menggunakan fungsi appendChild();
+
+document.body.appendChild(newElement);
+Sekarang elemen baru yang kita buat sudah tampil pada jendela browser.
+

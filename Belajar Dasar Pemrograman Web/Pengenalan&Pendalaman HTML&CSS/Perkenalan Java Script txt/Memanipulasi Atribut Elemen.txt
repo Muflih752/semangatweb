@@ -1,0 +1,38 @@
+Memanipulasi Element
+Setelah kita tahu cara mengakses elemen melalui objek document, sekarang saatnya kita belajar cara memanipulasi elemen yang didapat, seperti mengubah konten, menambahkan atau mengubah nilai atribut, dan menambahkan action/event pada elemen.
+
+Memanipulasi Atribut
+Untuk mengubah atau menambah nilai atribut pada elemen, apa  method yang kita gunakan? setAttribute() jawabannya. Method ini membutuhkan dua buah argumen string yang merupakan nama dan nilai dari atributnya.
+
+someElement.setAttribute("attributName", "attributeValue");
+Mari kita ambil contoh. Terdapat struktur web sebagai berikut:
+
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Manipulating Attribute</title>
+</head>
+<body>
+<figure>
+   <img id="catImage" src="https://i.ibb.co/9WT6LG6/two-three.jpg" alt="three-cats" width="600px"/>
+   <figcaption id="caption">Tiga Anak Kucing</figcaption>
+</figure>
+</body>
+</html>
+Kita buka berkas HTML tersebut pada browser, maka akan muncul tampilan seperti ini:
+
+20191206210656377551e73dcde834cfbc655937d491ca.png
+
+Ada yang janggal pada informasi yang ditampilkan di website. Berdasarkan caption, gambar seharusnya menampilkan 3 ekor kucing. Kita akan coba memperbaikinya dengan mengubah nilai atribut src pada elemen <img id=”catImage”> melalui JavaScript. Kita bisa melakukannya dengan menuliskan kode seperti berikut:
+
+let catImage = document.querySelector("#catImage");
+catImage.setAttribute("src", "https://i.ibb.co/55VG7vL/three-cat.jpg");
+Jalankan kode berikut pada console browser kemudian gambar pada halaman akan berubah.
+
+20191206210828e70d7f61d0eed3220cb3dfa9ce676d99.gif
+
+Selain mengatur nilai atribut elemen, kita juga dapat mengambil nilai dari atribut elemen yang sedang diterapkan dengan menggunakan method getAttribute(). Method tersebut membutuhkan satu buah argumen string yang merupakan nama atribut dan akan mengembalikan nilai dari atribut tersebut. Contoh:
+
+catImage.getAttribute("src");
+
+

@@ -1,0 +1,72 @@
+Menetapkan float pada #content dan aside
+Seperti yang sudah dipelajari, properti float berfungsi untuk memindahkan suatu elemen untuk berada sebelah di kiri atau di sebelah kanan, dengan menggunakan nilai right atau left. Ketika menggunakan properti tersebut kita perlu menetapkan lebar pada elemen yang akan diterapkan properti float sehingga kita tahu berapa banyak cakupan lebar yang disediakan untuk elemen tersebut.
+
+Untuk langkah awal, mari kita buat rule baru dengan selector #content dan tuliskan nilai left pada properti float.
+
+#content {
+  float: left;
+}
+Jangan lupa untuk menetapkan nilai lebar juga. Pada kasus kali ini kita gunakan nilai 75% untuk menetapkan lebar #content.
+
+#content {
+  float: left;
+  width: 75%;
+}
+Ketika kita buka hasilnya pada browser, tampilan akan jadi berantakan seperti ini:
+
+2019120623000257dcb6fbcfa7f44d11de5fde4f14fa40.png
+
+Tenang, ini normal. Dikarenakan kita belum menetapkan nilai float pada elemen <aside>. Elemen <aside> dan <footer> akan berpindah menempati ruang yang sebelumnya digunakan oleh #content (collapse). Hal tersebut telah kita pelajari pada materi sebelumnya bahwa elemen yang diberikan properti float akan dikeluarkan dari normal flow.
+
+Langkah selanjutnya, kita terapkan juga properti float dengan nilai right pada elemen <aside>.
+
+aside {
+  float: right;
+}
+Jangan lupa untuk menetapkan lebar pada elemennya. Karena sebelumnya elemen content sudah menerapkan 75% lebar dari parent, berarti elemen aside hanya dapat memiliki 25% ruang yang tersedia untuk ditempati. Silakan tetapkan nilai 25% pada properti width untuk elemen aside.
+
+aside {
+  float: right;
+  width: 25%;
+}
+Jika kita coba membuka berkas HTML dengan apa yang sudah kita terapkan, maka tampilan akan jadi lebih mengerikan seperti ini:
+
+201912062302142449b43d91c975ccf376dbf7a73818b3.png
+
+Hal tersebut disebabkan nilai elemen <main> sekarang memiliki tinggi 0px. Di mana #content dan elemen <aside> dianggap tidak ada, sehingga elemen <footer> akan naik mengisi ruang yang kosong. Agar #content dan elemen <aside> dianggap ada oleh <main> (sebagai induk elemennya) kita perlu tetapkan nilai overflow: auto; pada main.
+
+Silakan tambahkan properti overflow dengan nilai auto pada selector main yang sudah kita buat sebelumnya.
+
+main {
+  padding: 20px;
+  overflow: auto;
+}
+Setelah menerapkan overflow: auto; pada main, tampilan website sudah lebih baik dan elemen footer sudah berada pada posisi yang seharusnya.
+
+20191206230410724d5d475d29eeccabe802a0050529c9.png
+
+Namun kita perlu memberikan sedikit jarak antara #content dan aside agar tidak nampak berhimpitan. Tambahkanlah properti padding-left pada elemen <aside> agar konten yang ditampilkan lebih menjorok ke kiri.
+
+Silakan tambahkan properti padding-left dengan nilai 20px pada selector aside.
+
+aside {
+  float: right;
+  width: 25%;
+  padding-left: 20px;
+}
+Setelah menerapkannya, buka kembali hasilnya pada browser. Voila, ini hasilnya:
+
+201912062306095f95c784b70a120366b8c19bb8a66156.gif
+
+Ups, elemen <aside> sekarang berada di bawah #content karena dengan menambahkan padding pada <aside>, lebar elemen sudah bukan 25% lagi.
+
+Untuk mengatasinya kita bisa ubah tipe pengukuran untuk dimensi kotaknya. Masih ingat kan materi tentang box-sizing? Dengan menerapkan nilai border-box pada properti box-sizing, kita dapat menentukan dimensi kotak dengan tepat, tanpa dipengaruhi oleh padding dan border. 
+
+Mari kita tetapkan pengukuran box-sizing untuk seluruh elemen HTML dengan menggunakan selector * seperti berikut:
+
+* {
+  box-sizing: border-box;
+}
+Setelah menetapkan rule tersebut, maka tampilan website akan kembali normal.
+
+20191206230720fe32d873b5c8e9ff47ca0aac0d92a73f.png

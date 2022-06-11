@@ -1,0 +1,61 @@
+Menetapkan ukuran, ketebalan, dan alignment teks pada Halaman Profil
+Setelah menentukan tipe font baru dalam menampilkan teks, selanjutnya kita percantik lagi teksnya dengan mengatur ukuran, ketebalan, dan alignment pada teks. Jika Anda sudah menutup berkas style.css pada text editor, silakan buka kembali dan ikuti langkah - langkah berikut.
+
+Langkah pertama kita atur ukuran font menjadi 18px pada teks yang berada di elemen <a> yang merupakan turunan dari elemen <nav>. Silakan tambahkan rule dibawah ini.
+
+nav a {
+   font-size: 18px;
+}
+Kemudian kita atur juga ketebalan teksnya menjadi 400 dan hilangkan garis bawah pada elemen tersebut sehingga block rule-nya menjadi seperti ini:
+
+nav a {
+   font-size: 18px;
+   font-weight: 400;
+   text-decoration: none;
+}
+Sehingga jika kita preview pada browser, maka ukuran teks pada navigasi akan tampak lebih besar dan tidak memiliki garis bawah.
+
+20191206195058d97f6d2cd9f645acc623c5f940f9686d.png
+
+Selain itu, kita juga bisa memberikan efek tebal pada teks ketika salah satu item navigasi disorot menggunakan kursor. Tambahkan rule baru dengan memanfaatkan pseudo-class :hover pada elemen <a>.
+
+nav a:hover {
+   font-weight: bold;
+}
+Sehingga tampilan menjadi seperti ini:
+
+20191206195231455a0952e0180557f58c97f8b5adbb7e.gif
+
+Selanjutnya teks pada header aside akan kita buat menjadi rata tengah dengan menggunakan properti text-align. Sebelum itu, untuk memudahkan menetapkan selector, berikan attribute class pada elemen <article> yang berada di dalam elemen <aside> dengan nilai profile.
+
+<aside>
+     <article class="profile">
+          <header>
+              .....
+          </header>
+          <section>
+              .....
+          </section>
+     </article>
+</aside>
+Setelah itu, kita dapat menentukan selector dengan mudah untuk mengatur <header> pada elemen <article> tersebut:
+
+.profile header {
+   text-align: center;
+}
+Maka teks pada header aside akan menjadi rata tengah.
+
+20191206195433f602672cf0583d9f22c49de6aa051a00.png
+
+Terakhir, kita buat juga teks pada footer menjadi rata tengah dan tebal dengan menambahkan properti text-align: center; dan font-weight: bold; pada footer selector:
+
+footer {
+   padding: 20px;
+   color: white;
+   background-color: #00a2c6;
+   text-align: center;
+   font-weight: bold;
+}
+Sehingga tampilan footer akan tampak seperti ini:
+
+2019120619554644c273cd157b732d06d70d03065f03a5.png

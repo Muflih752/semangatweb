@@ -1,0 +1,166 @@
+Membuat Layout Kalkulator
+Setelah mengenal dasar penggunaan flexbox, mari sekarang kita terapkan apa yang sudah kita pelajari dengan membuat dasar layout kalkulator.
+
+
+
+Membuat struktur HTML kalkulator
+Mari kita membuat sebuah project baru dengan membuat folder baru dan beri nama folder sesuai keinginan atau pada contoh kali ini kita beri nama “WebCalculator”. Lalu buka folder tersebut menggunakan teks editor yang Anda miliki dan buat berkas HTML baru dengan nama “index.html”.
+
+201912061631302d5561edfdb3048918f60ad81a9c6732.png
+
+Tampilan project yang dibuka menggunakan Visual Studio Code
+
+
+
+Setelah itu, buka berkas index.html dan tuliskan struktur dasar HTML, mulai dari elemen <html>, <head>, dan <body>.
+
+<!DOCTYPE html>
+<html>
+<head></head>
+<body></body>
+</html>
+Jangan lupa tambahkan elemen <title> di dalam <head>.
+
+<!DOCTYPE html>
+<html>
+ 
+<head>
+<title>Web Calculator</title>
+</head>
+ 
+<body></body>
+ 
+</html>
+Sesuai yang sudah kita pelajari untuk menggunakan flexbox, kita membutuhkan sebuah container, jadi pada elemen <body> buatlah sebuah column container. Di dalamnya terdapat empat buah row container dan di dalam masing masing row container terdapat empat buah item-flex. Maka tuliskan kode berikut di dalam elemen <body>:
+
+<div class="flex-container-column">
+       <div class="flex-container-row">
+           <div class="button"></div>
+           <div class="button"></div>
+           <div class="button"></div>
+           <div class="button"></div>
+       </div>
+       <div class="flex-container-row">
+           <div class="button"></div>
+           <div class="button"></div>
+           <div class="button"></div>
+           <div class="button"></div>
+       </div>
+       <div class="flex-container-row">
+           <div class="button"></div>
+           <div class="button"></div>
+           <div class="button"></div>
+           <div class="button"></div>
+       </div>
+       <div class="flex-container-row">
+           <div class="button"></div>
+           <div class="button"></div>
+           <div class="button"></div>
+           <div class="button"></div>
+       </div>
+</div>
+Pada kode di atas, elemen column container kita berikan nilai class “flex-container-column”, tiap elemen row container kita berikan nilai class “flex-container-row” dan tiap flex item pada row container kita berikan nilai class “button”.
+
+Kemudian setiap elemen .button, di dalamnya kita berikan teks yang digunakan untuk melabelkan tiap-tiap tombolnya. Tuliskan teks angka 0 hingga 9 beserta operator-operator yang akan digunakan pada kalkulator dengan urutan seperti ini:
+
+<div class="flex-container-column">
+       <div class="flex-container-row">
+           <div class="button">7</div>
+           <div class="button">8</div>
+           <div class="button">9</div>
+           <div class="button">+/-</div>
+       </div>
+       <div class="flex-container-row">
+           <div class="button">4</div>
+           <div class="button">5</div>
+           <div class="button">6</div>
+           <div class="button">-</div>
+       </div>
+       <div class="flex-container-row">
+           <div class="button">1</div>
+           <div class="button">2</div>
+           <div class="button">3</div>
+           <div class="button">+</div>
+       </div>
+       <div class="flex-container-row">
+           <div class="button">CE</div>
+           <div class="button">0</div>
+           <div class="button">=</div>
+           <div class="button"></div>
+       </div>
+</div>
+Pada .flex-container-row terakhir, terdapat satu flex-item yang tidak diberikan nilai teks. Item tersebut memang tidak kita butuhkan sehingga kita bisa hapus elemen tersebut.
+
+Jika kita perhatikan dari beberapa tombol di atas, ada yang berupa tombol angka, operator dan fungsi. Untuk tombol operator seperti tambah (+) dan kurang (-) berikan class tambahan dengan nilai “operator”.
+
+.....
+<div class="button operator">-</div>
+.....
+<div class="button operator">+</div>
+Kemudian untuk tombol fungsi seperti negative (+/-), clear (CE), dan equals (=) berikan class tambahan dengan nilai sesuai dengan fungsinya tersebut.
+
+....
+<div class="button negative">+/-</div>
+....
+<div class="button clear">CE</div>
+....
+<div class="button equals">=</div>
+Penamaan class yang spesifik seperti ini dibutuhkan untuk memudahkan kita mengambil nilai elemen nanti ketika menggunakan JavaScript, hal ini juga membantu kita untuk memudahkan penentuan selector untuk styling menggunakan CSS.
+
+Sebuah kalkulator tentu tidak hanya terdiri dari tombol saja bukan? Tiap kalkulator pasti memiliki layar untuk menampilkan apa yang pengguna input dan menampilkan hasil kalkulasinya. Dengan begitu kita membutuhkan elemen lain yang berfungsi sebagai layar. Tambahkan elemen div baru tepat di bawah tag pembuka .flex-container-column dan beri atribut class dengan nilai “display”.
+
+<div class="flex-container-column">
+<div class="display"></div>
+<div class="flex-container-row">
+...........
+Kemudian di dalam elemen .display tersebut tambahkan elemen <h1></h1> sebagai teks yang berfungsi untuk menampilkan angka pada layar tersebut.
+
+<div class="display">
+<h1 id="displayNumber">0</h1>
+</div>
+Sejauh ini struktur kode yang ada pada berkas index.html akan tampak seperti ini:
+
+<!DOCTYPE html>
+<html>
+ 
+<head>
+   <title>Web Calculator</title>
+</head>
+ 
+<body>
+   <div class="flex-container-column">
+       <div class="display">
+           <h1 id="displayNumber">0</h1>
+       </div>
+       <div class="flex-container-row">
+           <div class="button">7</div>
+           <div class="button">8</div>
+           <div class="button">9</div>
+           <div class="button negative">+/-</div>
+       </div>
+       <div class="flex-container-row">
+           <div class="button">4</div>
+           <div class="button">5</div>
+           <div class="button">6</div>
+           <div class="button operator">-</div>
+       </div>
+       <div class="flex-container-row">
+           <div class="button">1</div>
+           <div class="button">2</div>
+           <div class="button">3</div>
+           <div class="button operator">+</div>
+       </div>
+       <div class="flex-container-row">
+           <div class="button clear">CE</div>
+           <div class="button">0</div>
+           <div class="button equals">=</div>
+       </div>
+   </div>
+</body>
+ 
+</html>
+Jika kita buka melalui browser, tampilan saat ini masih terlihat aneh.
+
+2019120616352087c982e7cd3d195e3a816eb8c23415d4.png
+
+Yups, hal tersebut wajar karena <div> tidak akan berpengaruh apa apa hingga kita memberikan styling pada elemen tersebut.

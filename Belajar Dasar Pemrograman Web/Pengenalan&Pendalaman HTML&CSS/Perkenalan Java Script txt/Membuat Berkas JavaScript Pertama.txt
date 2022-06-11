@@ -1,0 +1,30 @@
+Membuat Berkas JavaScript Pertama
+Setelah mengetahui beberapa metode untuk menuliskan JavaScript pada HTML, mari kita terapkan salah satu metode yang sudah kita ketahui. Kita akan menerapkan metode external script dengan membuat berkas JavaScript yang nantinya akan digunakan untuk menuliskan script dari project kalkulator yang sudah kita buat.
+
+Buka project kalkulator yang sudah kita buat. Di dalam folder assets, buat berkas baru dengan memberikan nama “kalkulator.js”. Ingat berkas ini harus diakhiri dengan ekstensi .js. Ekstensi tersebut menandakan bahwa berkas ini merupakan berkas JavaScript.
+
+Setelah membuat berkas tersebut maka struktur dari proyek kalkulator akan tampak seperti berikut:
+
+201912061720051ce7e4553be38cd779dbc0650949aa65.jpeg
+
+Buka berkas kalkulator.js dan tuliskan kode JavaScript berikut:
+
+console.log("Selamat Anda berhasil menggunakan JavaScript pada Website");
+Jangan khawatir jika Anda belum memahami maksud dari kode tersebut, nanti akan dijelaskan apa yang sudah kita tuliskan.
+
+Simpan perubahan pada berkas JavaScript tersebut kemudian buka index.html dan tambahkan elemen <script> dengan atribut src bernilai alamat berkas kalkulator.js. Tuliskan elemen <script> tepat sebelum closing tag </body>.
+
+...........
+   <script src="assets/kalkulator.js"></script>
+</body>
+Simpan perubahan pada index.html kemudian kita coba buka halaman tersebut dengan menggunakan browser. Maka hasilnya akan nampak seperti ini.
+
+201912061720309162201393e21ec6879d06e1a425bb08.png
+
+Tidak ada perubahan apa apa bukan? Yups, benar. Tetapi ketika kita mencoba membuka console pada DevTools kita akan mendapati pesan yang dituliskan menggunakan JavaScript. Silakan buka console pada DevTools dengan menekan ctrl+shift+i.
+
+201912061720557f4f0a0a92db687d4b757651236f3fca.png
+
+Script yang kita tuliskan sebelumnya berfungsi untuk menampilkan sebuah data baik itu teks (string) atau variabel, objek, fungsi dsb. Pada console website  console.log() biasanya digunakan sebagai sarana debugging sederhana untuk mengetahui nilai dari suatu variabel.
+
+Mungkin ini akan membuat Anda bingung jika tidak memiliki dasar pemrograman. Tak apa, yang terpenting ketika pesan ini muncul pada console, itu menandakan kita sudah berhasil menerapkan JavaScript pada website kita.

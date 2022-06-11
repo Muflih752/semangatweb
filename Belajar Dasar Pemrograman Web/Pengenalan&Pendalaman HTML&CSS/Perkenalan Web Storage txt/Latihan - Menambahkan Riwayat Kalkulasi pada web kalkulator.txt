@@ -1,0 +1,105 @@
+Menambahkan Riwayat Kalkulasi pada Web Kalkulator
+Kali ini kita akan menerapkan apa yang sudah dipelajari sebelumnya mengenai Web Storage. Pada kasus ini tipe storage yang cocok untuk digunakan pada Web Kalkulator adalah localStorage, karena data akan tetap bertahan meskipun browser sudah tertutup.
+
+Kita akan memisahkan berkas JavaScript yang akan kita buat kali ini dengan yang sudah kita buat sebelumnya. Jadi untuk langkah awal silakan buka kembali proyek kalkulator yang sudah kita buat, buat berkas JavaSript baru di dalam folder assets kemudian beri nama “storage.js”.
+
+Maka struktur proyek sekarang nampak seperti gambar berikut:
+
+201912062151177a71d8d83361df5aaa12145cd8b84094.png
+
+Sebelum menuliskan kode pada berkas storage.js, kita siapkan terlebih dahulu elemen table untuk menampilkan daftar riwayat kalkulasi.
+
+
+
+Menyiapkan Tabel Elemen
+Silakan buka berkas index.html, kemudian buat elemen div baru dengan menerapkan nilai class history dan card. Letakan elemen tersebut tepat di atas tag <script> pada akhir </body>.
+
+   .......
+   <div class="history card">
+      
+   </div>
+ 
+   <script src="assets/kalkulator.js"></script>
+</body>
+Kemudian di dalam elemen <div> tersebut buat elemen heading dan table seperti pada kode berikut:
+
+<div class="history card">
+       <h2>Riwayat Perhitungan</h2>
+       <table>
+           <thead>
+               <tr>
+                   <th>Angka Pertama</th>
+                   <th>Operator</th>
+                   <th>Angka Kedua</th>
+                   <th>Hasil</th>
+               </tr>
+           </thead>
+           <tbody id="historyList"></tbody>
+       </table>
+ </div>
+Elemen <tbody> yang kita beri id historyList merupakan elemen yang akan menampung data dinamis berdasarkan data dari localStorage yang ada. Kita akan memberi konten pada elemen ini secara dinamis menggunakan JavaScript nantinya.
+
+Keseluruhan berkas pada index.html sekarang akan nampak seperti ini:
+
+<!DOCTYPE html>
+<html>
+ 
+<head>
+   <title>Web Calculator</title>
+   <link rel="stylesheet" href="assets/style.css">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+ 
+<body>
+   <div class="flex-container-column card">
+       <div class="display">
+           <h1 id="displayNumber">0</h1>
+       </div>
+       <div class="flex-container-row">
+           <div class="button">7</div>
+           <div class="button">8</div>
+           <div class="button">9</div>
+           <div class="button negative">+/-</div>
+       </div>
+       <div class="flex-container-row">
+           <div class="button">4</div>
+           <div class="button">5</div>
+           <div class="button">6</div>
+           <div class="button operator">-</div>
+       </div>
+       <div class="flex-container-row">
+           <div class="button">1</div>
+           <div class="button">2</div>
+           <div class="button">3</div>
+           <div class="button operator">+</div>
+       </div>
+       <div class="flex-container-row">
+           <div class="button clear">CE</div>
+           <div class="button">0</div>
+           <div class="button equals double">=</div>
+       </div>
+   </div>
+   <div class="history card">
+       <h2>Riwayat Perhitungan</h2>
+       <table>
+           <thead>
+               <tr>
+                   <th>Angka Pertama</th>
+                   <th>Operator</th>
+                   <th>Angka Kedua</th>
+                   <th>Hasil</th>
+               </tr>
+           </thead>
+           <tbody id="historyList"></tbody>
+       </table>
+   </div>
+ 
+   <script src="assets/kalkulator.js"></script>
+</body>
+ 
+</html>
+Jika kita buka berkas index.html pada browser akan tampak seperti ini:
+
+201912062152503d90b54bb10bd0a9304cb3068f629ded.png
+
+Selanjutnya kita akan menerapkan styling pada tabel riwayat agar informasi lebih mudah dibaca.
