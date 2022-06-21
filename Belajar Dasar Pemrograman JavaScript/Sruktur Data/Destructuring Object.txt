@@ -1,0 +1,288 @@
+Destructuring Object
+Penulisan sintaksis destructuring object pada ES6 menggunakan object literal ({ }) di sisi kiri dari operator assignment.
+
+main.js
+1
+const profile = {
+2
+    firstName: "John",
+3
+    lastName: "Doe",
+4
+    age: 18
+5
+}
+6
+ 
+7
+const {lastName} = profile;
+8
+ 
+9
+console.log(lastName);
+10
+ 
+11
+/* output:
+12
+John Doe 18
+13
+*/
+ Input  Reset
+ Jalankan
+Doe
+Pada contoh di atas tanda kurung kurawal merepresentasikan object yang akan didestrukturisasi. Di dalamnya terdapat firstName, lastName, dan age yang merupakan variabel untuk menyimpan nilai properti dari object profile. Kita juga perlu perhatikan penamaan variabelnya. Pastikan penamaannya sama seperti properti object-nya. Melalui nama variabel inilah nilai-nilai properti object akan dimasukkan secara otomatis. Sehingga variabel firstName akan berisikan nilai profile.firstName, lastName akan berisikan nilai profile.lastName, begitu juga dengan variabel age akan berisikan nilai profile.age.
+
+Dalam destructuring object, kita bisa menentukan salah satu nilai yang ingin kita desktrukturisasikan. Sehingga kita tidak perlu membuat variabel sebanyak properti yang dimiliki objeknya, contohnya:
+
+const {lastName} = profile;
+
+
+Destructuring Assignment
+Pada contoh sebelumnya, kita telah melakukan destructuring object pada deklarasi variabel. Namun, pada kasus tertentu mungkin kita perlu melakukannya pada variabel yang sudah dideklarasikan.
+
+main.js
+const profile = {
+    firstName: "John",
+    lastName: "Doe",
+    age: 18
+}
+ 
+let firstName = "Dimas";
+let age = 20;
+ 
+// menginisialisasi nilai baru melalui destructuring object
+({firstName, age} = profile);
+ 
+console.log(firstName);
+console.log(age);
+ 
+/* output:
+John
+18
+*/
+1
+const profile = {
+2
+    firstName: "John",
+3
+    lastName: "Doe",
+4
+    age: 18
+5
+}
+6
+ 
+7
+let firstName = "Dimas";
+8
+let age = 20;
+9
+ 
+10
+// menginisialisasi nilai baru melalui destructuring object
+11
+({firstName, age} = profile);
+12
+ 
+13
+console.log(firstName);
+14
+console.log(age);
+15
+ 
+16
+/* output:
+17
+John
+18
+18
+19
+*/
+ Input  Reset
+ Jalankan
+
+            
+Saat melakukan destructuring assignment, kita perlu menuliskan destructuring object di dalam tanda kurung. Jika tidak menuliskan tanda kurung, tanda kurung kurawal akan membuat JavaScript mengira kita membuat block statement, sementara block statement tidak bisa berada pada sisi kiri assignment.
+
+// tidak bisa karena JavaScript mengira kita membuat block statement
+// block statement tidak bisa berada pada sisi kiri assignment
+{firstName, age} = profile;
+Nah, inilah fungsinya tanda kurung. Ia akan memberi tahu JavaScript bahwa tanda kurawal di dalamnya bukan sebuah block statement melainkan sebuah expression, sehingga assignment dapat dilakukan.
+
+({firstName, age} = profile);
+
+
+Default Values
+Ketika kita mendestruksikan objek dan menetapkan variabel dengan nama yang bukan merupakan properti dari objek, maka nilai dari variabel tersebut menjadi undefined. Contohnya:
+
+main.js
+const profile = {
+    firstName: "John",
+    lastName: "Doe",
+    age: 18
+}
+ 
+ 
+const {firstName, age, isMale} = profile;
+ 
+console.log(firstName)
+console.log(age)
+console.log(isMale)
+ 
+/* output:
+John
+18
+undefined
+*/
+1
+const profile = {
+2
+    firstName: "John",
+3
+    lastName: "Doe",
+4
+    age: 18
+5
+}
+6
+ 
+7
+ 
+8
+const {firstName, age, isMale} = profile;
+9
+ 
+10
+console.log(firstName)
+11
+console.log(age)
+12
+console.log(isMale)
+13
+ 
+14
+/* output:
+15
+John
+16
+18
+17
+undefined
+18
+*/
+ Input  Reset
+ Jalankan
+
+            
+Alternatifnya, kita bisa secara opsional mendefinisikan nilai default pada properti tertentu jika tidak ditemukan. Untuk melakukanya, tambahkan tanda assignment (=) setelah nama variabel dan tentukan nilai default-nya seperti ini:
+
+main.js
+const profile = {
+    firstName: "John",
+    lastName: "Doe",
+    age: 18
+}
+ 
+ 
+const {firstName, age, isMale = false} = profile;
+ 
+console.log(firstName)
+console.log(age)
+console.log(isMale)
+ 
+/* output:
+John
+18
+false
+*/
+1
+const profile = {
+2
+    firstName: "John",
+3
+    lastName: "Doe",
+4
+    age: 18
+5
+}
+6
+ 
+7
+ 
+8
+const {firstName, age, isMale = false} = profile;
+9
+ 
+10
+console.log(firstName)
+11
+console.log(age)
+12
+console.log(isMale)
+13
+ 
+14
+/* output:
+15
+John
+16
+18
+17
+false
+18
+*/
+ Input  Reset
+ Jalankan
+
+            
+Jika nilai properti tidak ditemukan, maka nilai default akan diterapkan pada variabel.
+
+
+
+Assigning to Different Local Variable Names
+Sampai saat ini kita tahu bahwa untuk melakukan destrukturisasi object pada variabel lokal, kita perlu menyeragamkan penamaan variabel lokal dengan properti object-nya. Namun, sebenarnya dalam proses destrukturisasi object kita bisa menggunakan penamaan variabel lokal yang berbeda. ES6 menyediakan sintaksis tambahan yang membuat kita dapat melakukan hal tersebut. Penulisannya mirip seperti ketika kita membuat properti beserta nilainya pada object.
+
+Contohnya seperti ini:
+
+main.js
+1
+const profile = {
+2
+    firstName: "John",
+3
+    lastName: "Doe",
+4
+    age: 18
+5
+}
+6
+ 
+7
+const {firstName: localFirstName, lastName: localLastName, age: localAge} = profile;
+8
+ 
+9
+console.log(localFirstName);
+10
+console.log(localLastName);
+11
+console.log(localAge);
+12
+ 
+13
+ 
+14
+/* output:
+15
+John
+16
+Doe
+17
+18
+18
+*/
+ Input  Reset
+ Jalankan
+
+            

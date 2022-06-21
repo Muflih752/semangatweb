@@ -1,0 +1,83 @@
+Set
+Struktur data yang akan kita bahas berikutnya adalah Set. Set sederhananya merupakan kumpulan nilai (set of values). Hal yang membedakan Set dengan struktur data yang lain adalah data pada Set tidak berurutan dan juga tidak diindeks. Selain itu, data di dalam Set juga bersifat unik dan tidak ada duplikasi. Perhatikan contoh deklarasi Set di bawah ini:
+
+main.js
+1
+const numberSet = new Set([1, 4, 6, 4, 1]);
+2
+​
+3
+console.log(numberSet);
+4
+​
+5
+/* output
+6
+Set(3) { 1, 4, 6 }
+7
+*/
+ Input  Reset
+ Jalankan
+
+            
+Pada kode di atas terdapat beberapa angka yang duplikat, yaitu angka 1 dan 4. Secara otomatis Set akan membuang angka yang sama, sehingga nilai yang tersimpan adalah {1, 4, 6}.
+
+Untuk menambahkan data ke dalam Set kita bisa memanfaatkan fungsi add().
+
+main.js
+1
+const numberSet = new Set([1, 4, 6, 4, 1]);
+2
+numberSet.add(5);
+3
+numberSet.add(10);
+4
+numberSet.add(6);
+5
+​
+6
+console.log(numberSet);
+7
+​
+8
+/* output
+9
+Set(5) { 1, 4, 6, 5, 10 }
+10
+*/
+ Input  Reset
+ Jalankan
+
+            
+Fungsi add() hanya menerima satu argumen. Jika Anda memasukkan array, maka array tersebut akan dianggap sebagai satu elemen sendiri. Nilai yang duplikat akan diabaikan.
+
+main.js
+1
+const numberSet = new Set([1, 4, 6, 4, 1]);
+2
+numberSet.add(5);
+3
+numberSet.add(10);
+4
+numberSet.add(6);
+5
+​
+6
+numberSet.delete(4);
+7
+​
+8
+console.log(numberSet);
+9
+​
+10
+/* output
+11
+Set(4) { 1, 6, 5, 10 }
+12
+*/
+ Input  Reset
+ Jalankan
+
+            
+Ingat bahwa Set tidak memiliki urutan atau index, sehingga argumen yang dimasukkan ke dalam fungsi delete adalah nilai yang ingin dihapus, bukan index-nya.

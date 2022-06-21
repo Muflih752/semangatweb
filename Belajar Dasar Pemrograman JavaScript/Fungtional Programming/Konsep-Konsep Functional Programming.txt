@@ -1,0 +1,454 @@
+Konsep-Konsep Functional Programming
+Setelah Anda memiliki sedikit gambaran tentang bagaimana paradigma FP dapat membuat kode yang Anda tuliskan lebih mudah dibaca dan ringkas, kini saatnya Anda ketahui, apa saja konsep-konsep dasar yang ada di dalam paradigma FP.
+
+Di sini kita akan membahas 4 konsep besar yang ada di FP. Yakni Pure Function, Immutability, Recursive, dan High-Order Function.
+
+
+
+Pure Function
+Salah satu konsep besar dari paradigma FP adalah Pure Function. Apa artinya? Pure Function merupakan konsep dari pembuatan fungsi yang mengharuskan fungsi untuk tidak bergantung terhadap nilai yang berada di luar fungsi atau parameternya. Sehingga mau seperti apa keadaanya, fungsi yang dibuat selalu menghasilkan sesuatu yang sama, terkecuali bila fungsi tersebut diberikan nilai parameter yang berbeda.
+
+Untuk lebih jelasnya, simak kode berikut:
+
+main.js
+1
+let PI = 3.14;
+2
+​
+3
+const hitungLuasLingkaran = (jariJari) => {
+4
+  return PI * (jariJari * jariJari); 
+5
+}
+6
+​
+7
+console.log(hitungLuasLingkaran(4)); // 50.24
+8
+​
+9
+PI = 5; // tidak sengaja nilai PI berubah
+10
+​
+11
+console.log(hitungLuasLingkaran(4)); // 80
+ Input  Reset
+ Jalankan
+
+            
+Menurut Anda, apakah fungsi hitungLuasLingkaran merupakan pure function atau impure function (lawan dari pure function)? Jika Anda menjawab impure function, Anda tepat sekali!
+
+Fungsi tersebut tidak bisa dikatakan pure function karena ia membutuhkan nilai yang berada di luar dari fungsinya, yakni nilai PI. Bila nilai PI berubah, maka penggunaan fungsi menghasilkan nilai yang berbeda walaupun diberikan nilai parameter yang sama.
+
+Lantas, bagaimana cara membuat fungsi tersebut menjadi pure? Mudah!
+
+main.js
+1
+const hitungLuasLingkaran = (jariJari) => {
+2
+  return 3.14 * (jariJari * jariJari); 
+3
+}
+4
+​
+5
+console.log(hitungLuasLingkaran(4)); // 50.24
+6
+console.log(hitungLuasLingkaran(4)); // 50.24
+7
+console.log(hitungLuasLingkaran(8)); // 200.96
+8
+console.log(hitungLuasLingkaran(8)); // 200.96
+ Input  Reset
+ Jalankan
+
+            
+Dengan memindahkan nilai PI secara konstan di dalam fungsi, maka dapat dipastikan nilai tersebut tidak akan berubah atau tak sengaja diubah. Dengan begitu fungsi selalu menghasilkan nilai yang sama bila nilai parameter yang diberikan sama.
+
+Selain dilarang untuk bergantung terhadap nilai luar, pure function juga dilarang keras untuk mengubah nilai yang berada di luar baik secara sengaja atau tidak sengaja. Pure function tidak boleh menimbulkan efek samping (no side effect) ketika digunakan.
+
+Untuk lebih jelasnya, coba lihat contoh kode berikut:
+
+main.js
+1
+const createPersonWithAge = (age, person) => {
+2
+  person.age = age;
+3
+  return person;
+4
+};
+5
+​
+6
+const person = {
+7
+  name: 'Bobo'
+8
+};
+9
+​
+10
+const newPerson = createPersonWithAge(18, person);
+11
+​
+12
+console.log({
+13
+  person,
+14
+  newPerson
+15
+});
+16
+​
+17
+/**
+18
+ * Output:
+19
+ *  {
+20
+      person: { name: 'Bobo', age: 18 },
+ Input  Reset
+ Jalankan
+
+            
+Fungsi createPersonWithAge bertujuan untuk membuat objek person baru dengan tambahan properti age dari objek person yang ada. Namun alih-alih hanya membuat objek baru, ia juga malah mengubah nilai dari objek lama. Nah, hal inilah yang menyebabkan fungsi createPersonWithAge bukanlah pure function.
+
+Lalu bagaimana cara membuat fungsi tersebut menjadi pure? Mudah, kita manfaatkan destructuring object daripada mengubah objek tersebut secara langsung.
+
+main.js
+1
+const createPersonWithAge = (age, person) => {
+2
+  return { ...person, age };
+3
+};
+4
+​
+5
+const person = {
+6
+  name: 'Bobo'
+7
+};
+8
+​
+9
+const newPerson = createPersonWithAge(18, person);
+10
+​
+11
+console.log({
+12
+  person,
+13
+  newPerson
+14
+});
+15
+​
+16
+/**
+17
+ * Output:
+18
+ *  { 
+19
+ *    person: { name: 'Bobo' },
+20
+ *    newPerson: { name: 'Bobo', age: 18 } 
+ Input  Reset
+ Jalankan
+
+            
+Lihat! Lagi-lagi lebih mudah dan singkat bukan?
+
+Agar lebih mudah dalam mengetahui apakah fungsi yang Anda buat sudah pure atau belum, pastikan 3 konsep ini ada pada fungsi yang Anda buat.
+
+Mengembalikan nilai yang sama bila inputannya (nilai parameter) sama.
+Hanya bergantung pada argumen yang diberikan.
+Tidak menimbulkan efek samping.
+Bila 3 konsep di atas terpenuhi, maka bisa dipastikan Anda membuat sebuah pure function.
+
+
+
+Immutability
+Konsep yang kedua adalah immutability. Immutable berarti sebuah objek tidak boleh diubah setelah objek tersebut dibuat. Kontras dengan mutable yang artinya objek boleh diubah setelah objek tersebut dibuat.
+
+Konsep immutability sangat kental pada paradigma FP. Anda bisa lihat sebelumnya pada contoh penggunaan array map. Ketika menggunakan array.map(), alih-alih ia mengubah nilai dari array itu sendiri, malah ia membuat atau menghasilkan array baru.
+
+main.js
+1
+const names = ['Harry', 'Ron', 'Jeff', 'Thomas'];
+2
+​
+3
+const newNamesWithExcMark = names.map((name) => `${name}!`);
+4
+​
+5
+console.log({
+6
+    names,
+7
+    newNamesWithExcMark,
+8
+});
+9
+​
+10
+/**
+11
+ * {
+12
+     names: [ 'Harry', 'Ron', 'Jeff', 'Thomas' ],
+13
+     newNamesWithExcMark: [ 'Harry!', 'Ron!', 'Jeff!', 'Thomas!' ]
+14
+   }
+15
+ */
+16
+​
+17
+​
+ Input  Reset
+ Jalankan
+
+            
+Lantas, bagaimana bila kita benar-benar perlu mengubah nilai dari sebuah objek? Contohnya seperti ini:
+
+main.js
+1
+const user = {
+2
+    firstname: 'Harry',
+3
+    lastName: 'Protter', // ups, typo!
+4
+}
+5
+​
+6
+const renameLastNameUser = (newLastName, user) => {
+7
+    user.lastName = newLastName;
+8
+}
+9
+​
+10
+renameLastNameUser('Potter', user);
+11
+​
+12
+console.log(user);
+13
+​
+14
+/**
+15
+ * output:
+16
+ * { firstname: 'Harry', lastName: 'Potter' }
+17
+ * 
+18
+ */
+ Input  Reset
+ Jalankan
+
+            
+Yup! Tujuan Anda memang tercapai namun itu bukanlah konsep dari paradigma FP. Bila Anda ingin menerapkan FP sepenuhnya, hindari cara seperti di atas. Lantas bagaimana solusinya? Sama seperti fungsi array map(), alih-alih mengubah nilai objek secara langsung, terapkan perubahan tersebut pada nilai return dalam objek baru.
+
+main.js
+1
+const user = {
+2
+    firstname: 'Harry',
+3
+    lastName: 'Protter', // ups, typo!
+4
+}
+5
+​
+6
+const createUserWithNewLastName = (newLastName, user) => {
+7
+    return { ...user, lastName: newLastName }
+8
+}
+9
+​
+10
+const newUser = createUserWithNewLastName('Potter', user);
+11
+​
+12
+console.log(newUser);
+13
+​
+14
+/**
+15
+ * output:
+16
+ * { firstname: 'Harry', lastName: 'Potter' }
+17
+ * 
+18
+ */
+ Input  Reset
+ Jalankan
+
+            
+Hasilnya sama kan? Selain itu, Anda juga bisa menyesuaikan nama fungsinya dari renameLastNameUser menjadi createUserWithNewLastName. Hal itu perlu untuk mengindikasikan bahwa fungsi mengembalikan atau menghasilkan objek user baru.
+
+
+
+Rekursif
+Konsep selanjutnya yang ada di Functional Programming adalah rekursif. Apa itu rekursif? Rekursif merupakan teknik pada sebuah function yang memanggil dirinya sendiri.
+
+Kita akan mencoba mengubah fungsi countDown yang biasanya kita buat menggunakan sintaksis iterasi seperti for, foreach, while seperti kode di bawah menjadi bentuk rekursif.
+
+const countDown = start => {
+  do {
+    console.log(start);
+    start -=1;
+  }
+  while(start > 0);
+};
+ 
+countDown(10);
+Maka, bentuk rekursinya adalah sebagai berikut:
+
+main.js
+1
+const countDown = start => {
+2
+  console.log(start);
+3
+  if(start > 0) countDown(start-1);
+4
+};
+5
+​
+6
+countDown(10);
+ Input  Reset
+ Jalankan
+
+            
+Dengan teknik rekursif ini, kita sebenarnya bisa menggantikan operasi iterasi dengan rekursi. Namun tidak sebatas itu saja, dengan rekursi kita dapat membuat dan mengolah data structures seperti Tree dan Array.
+
+
+
+Higher-Order Function
+JavaScript memiliki kemampuan First Class Functions, karena itu fungsi pada JavaScript dapat diperlakukan layaknya sebuah data. Kita bisa menyimpan function dalam variabel, memberikan function sebagai parameter pada fungsi lainnya, hingga mengembalikan function di dalam function.
+
+main.js
+1
+const hello = () => {
+2
+  console.log('Hello!')
+3
+};
+4
+​
+5
+const say = (someFunction) => {
+6
+  someFunction();
+7
+}
+8
+​
+9
+const sayHello = () => {
+10
+    return () => {
+11
+        console.log('Hello!');
+12
+    }
+13
+}
+14
+​
+15
+hello();
+16
+say(hello);
+17
+sayHello()();
+18
+​
+19
+/**
+20
+ * Hello!
+ Input  Reset
+ Jalankan
+
+            
+Karena dengan kemampuan First Class Functions-nya itu, kita dapat membuat Higher-Order Function secara mudah. Tunggu, tunggu. Apa itu Higher-Order Function?
+
+Higher-Order Function menjadi bagian konsep pada paradigma FP. Higher-Order Function merupakan fungsi yang dapat menerima fungsi lainnya pada argumen; mengembalikan sebuah fungsi; atau bahkan keduanya.
+
+Teknik Higher-Order Function biasanya digunakan untuk:
+
+Mengabstraksi atau mengisolasi sebuah aksi, event, atau menangani alur asynchronous menggunakan callback, promise, dan lainnya.
+Membuat utilities yang dapat digunakan di berbagai tipe data.
+Membuat teknik currying atau function composition.
+Array map() merupakan salah satu contoh Higher-Order Function yang ada di JavaScript. Karena dalam penggunaanya, ia menerima satu buah argumen yang merupakan sebuah function.
+
+Dengan mengetahui adanya Higher-Order Function, Anda bisa membuat fungsi map() versi Anda sendiri!
+
+main.js
+1
+const names = ['Harry', 'Ron', 'Jeff', 'Thomas'];
+2
+​
+3
+const arrayMap = (arr, action) => {
+4
+  const loopTrough = (arr, action, newArray = [], index = 0) => {
+5
+    const item = arr[index];
+6
+    if(!item) return newArray;
+7
+    return loopTrough(arr, action, [...newArray, action(arr[index])], index + 1);
+8
+  }
+9
+​
+10
+  return loopTrough(arr, action);
+11
+}
+12
+​
+13
+​
+14
+const newNames = arrayMap(names, (name) => `${name}!` );
+15
+​
+16
+console.log({
+17
+    names,
+18
+    newNames,
+19
+});
+20
+​
+ Input  Reset
+ Jalankan
+
+            

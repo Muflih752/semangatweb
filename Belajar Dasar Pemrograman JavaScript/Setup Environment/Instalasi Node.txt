@@ -1,0 +1,72 @@
+Instalasi Node
+Untuk bisa menjalankan Node pada perangkat lokal, kita perlu menginstal Node.js. Node.js memiliki dua versi rilis, yaitu LTS dan current. LTS merupakan kepanjangan dari Long Term Support. Artinya, versi tersebut mendapat dukungan dalam jangka waktu yang lama, sehingga lebih disarankan menggunakan versi ini. Sementara, versi current berisi fitur-fitur baru yang dirilis untuk Node.js.
+
+
+
+Windows
+Jika Anda menggunakan sistem operasi Windows, kunjungi situs https://nodejs.org/ lalu unduh Node.js versi LTS.
+
+202103302338003b4c7e291c774db3340e0f090cefb3ef.jpeg
+
+Setelah berhasil mengunduh, buka berkas yang baru saja diunduh dan ikuti instruksi yang diberikan.
+
+20210330233822ac64eba0c4d13fa6c8ceca466699677a.jpeg
+
+Jika Anda ingin mengubah lokasi instalasi, Anda bisa menentukan lokasi yang Anda inginkan.
+
+20210330233840403fa2cd98ab0fa47872670e460b8c85.jpeg
+
+Pada bagian selanjutnya, kita juga dapat melihat komponen apa saja yang akan diterapkan (bundling) dalam pemasangan node.js ini.
+
+20210330233904ba06737816dc936710f9aed14471fda9.jpeg
+
+Lalu ikuti instruksi selanjutnya dan tunggu proses instalasi hingga selesai. Jika instalasi selesai dan berhasil, maka pesan seperti ini akan tampil.
+
+20210330233925675ea80c3be4c19da83b4d0b322fc9dc.jpeg
+
+
+
+Mac
+Jika Anda menggunakan MacOS, kunjungi situs https://nodejs.org/ kemudian unduh Node.js versi LTS.
+
+20210330234058bafd71f58751aceb7b90a6ed4c3b03e8.png
+
+Setelah berhasil mengunduh, silakan buka berkas tersebut dan ikuti instruksi yang diberikan.
+
+2021033023413006905bb8cd4b8b5f3354b3c5db842a05.png
+
+Jika ingin mengubah lokasi instalasi, Anda bisa menentukan lokasi yang diinginkan.
+
+202103302341589f707b982228eda66ae87e5c3372aadf.png
+
+Tuliskan username dan password administrasi pada Mac Anda jika diperlukan.
+
+202103302342141a63ea572171db50d709c90254b3bb7d.png
+
+Lalu tunggu proses instalasi selesai. Jika instalasi berhasil, maka akan menampilkan pesan seperti ini:
+
+20210330234232ead187288187a6bfa87918ce98ad5a30.png
+
+
+
+Linux
+Jika Anda menggunakan Linux (Ubuntu), Anda dapat menginstal Node.js melalui terminal. Pastikan Anda terkoneksi dengan internet. Silakan buka terminal dan tuliskan perintah berikut:
+
+curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+NOTE: Jika Anda menggunakan linux versi lain, silakan lihat instruksi pemasangan Node.js pada tautan berikut: https://github.com/nodesource/distributions/blob/master/README.md.
+
+Jika terjadi eror, kemungkinan Anda belum memasang curl pada komputer Anda. Silakan instal curl terlebih dulu dengan perintah berikut:
+
+sudo apt-get install curl
+Selanjutnya pasang Node.js dengan perintah berikut:
+
+sudo apt-get install -y nodejs
+Ikuti instruksi yang ada dan tunggu hingga proses selesai.
+
+Untuk memastikan Node.js telah terpasang, jalankan dua perintah berikut pada terminal/command prompt:
+
+node -v
+npm -v
+20210330234428af15fd2f53f86fa196afb160bfd14c79.jpeg
+
+Jika konsol menampilkan nomor versi, artinya Node.js dan NPM telah berhasil terinstal pada komputer Anda.

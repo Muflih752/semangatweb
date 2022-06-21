@@ -1,0 +1,151 @@
+Function Parameter
+Pada materi sebelumnya, kita telah berkenalan dengan fungsi yang merupakan suatu blok kode yang dapat menerima input dan menghasilkan output tertentu. Input ke dalam sebuah fungsi dikirimkan melalui parameter.
+
+Di dalam fungsi kita akan banyak bertemu istilah parameter & argument. Penggunaan istilah ini sering kali tertukar, bahkan di kalangan developer. 
+
+Perbedaan mendasar antara keduanya antara lain:
+
+Parameter merupakan variabel yang didefinisikan sebagai inputan dari sebuah fungsi. Contoh:
+
+function multiply(a, b) {
+    return a * b;
+}
+Argument merupakan nilai atau expression yang dimasukkan ke dalam fungsi. Contohnya:
+
+multiply(3, 4);
+Parameter dari fungsi dapat berupa tipe data apa pun, mulai dari string, number, object, bahkan fungsi lain.
+
+Jika parameter dari fungsi adalah sebuah object, kita juga bisa memanfaatkan destructuring object untuk mendapatkan nilainya. Contohnya seperti berikut:
+
+main.js
+1
+const user = {
+2
+    id: 24,
+3
+    displayName: 'kren',
+4
+    fullName: 'Kylo Ren',
+5
+};
+6
+​
+7
+function introduce({displayName, fullName}) {
+8
+    console.log(`${displayName} is ${fullName}`);
+9
+}
+10
+​
+11
+introduce(user);
+12
+​
+13
+/* output
+14
+kren is Kylo Ren
+15
+*/
+ Input  Reset
+ Jalankan
+
+            
+
+
+Default Parameters
+Fungsi pada JavaScript tidak melakukan pengecekan terhadap jumlah maupun tipe argumen yang dimasukkan ke dalam parameter. Ini berarti kita bisa memasukkan argumen meskipun tidak sesuai dengan parameter yang telah didefinisikan.
+
+main.js
+1
+function exponentsFormula(baseNumber, exponent) {
+2
+    let result = baseNumber ** exponent;
+3
+    console.log(`${baseNumber}^${exponent} = ${result}`);
+4
+}
+5
+​
+6
+exponentsFormula(2);
+7
+​
+8
+/* output
+9
+2^undefined = NaN
+10
+*/
+ Input  Reset
+ Jalankan
+
+            
+Seperti yang kita lihat pada contoh kode di atas, ketika argumen lebih sedikit dari parameternya, maka parameter yang tidak terdefinisi akan bernilai undefined. Sebagai solusi jika memungkinkan, kita bisa memberikan nilai default pada parameter. Nilai ini akan digunakan jika kita tidak memasukkan parameter.
+
+main.js
+1
+function exponentsFormula(baseNumber, exponent = 2) {
+2
+    let result = baseNumber ** exponent;
+3
+    console.log(`${baseNumber}^${exponent} = ${result}`);
+4
+}
+5
+​
+6
+exponentsFormula(3);
+7
+​
+8
+/* output
+9
+3^2 = 9
+10
+*/
+ Input  Reset
+ Jalankan
+
+            
+
+
+Rest Parameter
+Masih ingat dengan spread operator (...)? Jika spread operator menyebarkan array menjadi beberapa elemen berbeda, rest parameter ini adalah kebalikan dari operator tersebut. Penasaran?
+
+Rest parameter juga dituliskan menggunakan three consecutive dots (...). Dengan rest parameter, kita dapat menggabungkan beberapa elemen menjadi satu array. Tentu teknik ini sangat bermanfaat ketika kita hendak membuat sebuah fungsi dengan parameter yang tidak pasti.
+
+Sebagai contoh adalah fungsi yang menjumlahkan seluruh nilai argumen seperti berikut:
+
+main.js
+1
+function sum(...numbers) {
+2
+    let result = 0;
+3
+    for (let number of numbers) {
+4
+        result += number;
+5
+    }
+6
+    return result;
+7
+}
+8
+​
+9
+console.log(sum(1, 2, 3, 4, 5));
+10
+​
+11
+/* output
+12
+15
+13
+*/
+ Input  Reset
+ Jalankan
+
+            

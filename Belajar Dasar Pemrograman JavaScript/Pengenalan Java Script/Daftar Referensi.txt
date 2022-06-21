@@ -1,0 +1,12 @@
+Daftar Referensi
+[1]  Indeed. “Gaji di Indonesia - gaji rata-rata” id.indeed.com. https://id.indeed.com/career/front-end-developer/salaries?from=top_sb (diakses pada 2 Juni 2022)
+
+[2]  Indeed. “Gaji di Indonesia - gaji rata-rata” id.indeed.com. https://id.indeed.com/career/back-end-developer/salaries?from=top_sb (diakses pada 2 Juni 2022)
+
+[3] D. Flanagan, "The JavaScript Standard Library," dalam JavaScript: The Definitive Guide, 7th Edition. O'Reilly Media, Inc., 2020. Available: O'Reilly
+
+[4] D. Flanagan, "Introduction to JavaScript," dalam JavaScript: The Definitive Guide, 7th Edition. O'Reilly Media, Inc., 2020. Available: O'Reilly
+
+[5] S. Amarasinghe. "Reading 17: Concurrency". web.mit.edu. http://web.mit.edu/6.005/www/fa14/classes/17-concurrency/ (diakses pada 22 Maret 2021)
+
+[6] M. Lee. "What's the difference between a tilde (~) and a caret (^) in a npm package.json file?". michaelsoolee.com. https://michaelsoolee.com/npm-package-tilde-caret/ (diakses pada 26 Maret 2021)

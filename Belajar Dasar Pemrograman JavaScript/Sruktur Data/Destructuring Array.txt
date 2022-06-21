@@ -1,0 +1,246 @@
+Destructuring Array
+Destructuring array serupa dengan destructuring object. Object menggunakan tanda kurung kurawal { } sedangkan array menggunakan tanda kurung siku [ ]. Perbedaan lainnya adalah destructuring array bekerja berdasarkan posisi daripada penamaan propertinya. Berikut contoh dari destructuring array pada ES6:
+
+main.js
+1
+const favorites = ["Seafood", "Salad", "Nugget", "Soup"];
+2
+ 
+3
+const [firstFood, secondFood, thirdFood, fourthFood] = favorites;
+4
+ 
+5
+console.log(firstFood);
+6
+console.log(secondFood);
+7
+console.log(thirdFood);
+8
+console.log(fourthFood);
+9
+ 
+10
+/* output:
+11
+Seafood
+12
+Salad
+13
+Nugget
+14
+Soup
+15
+*/
+ Input  Reset
+ Jalankan
+
+            
+Kode di atas merupakan contoh proses destructuring array. Di dalam array favorites terdapat 4 (empat) nilai string yang masing-masing nilainya dimasukkan ke variabel lokal firstFood, secondFood, thirdFood, dan fourthFood. Nilai dari array yang dimasukkan ke variabel lokal dipilih berdasarkan posisi di mana ia dideklarasikan pada array.
+
+const [firstFood, secondFood, thirdFood, fourthFood] = favorites;
+Sebenarnya kita bebas untuk menentukan nama dari variabel lokal. Yang terpenting adalah urutan ketika deklarasi variabelnya saja.
+
+Kita juga bisa memilih nilai pada index tertentu untuk destrukturisasi pada array. Contohnya, jika ingin mengambil nilai ketiga dari array, kita tidak perlu menyiapkan variabel lokal untuk menampung nilai array pertama, kedua, atau pun keempat. Kita bisa melakukannya dengan membiarkan index array yang tidak kita inginkan tetap kosong (tanpa menulis variabel lokal). Lebih lanjut, tanda koma (,) tetap diperlukan untuk menunjukkan posisi index-nya seperti ini:
+
+main.js
+1
+const favorites = ["Seafood", "Salad", "Nugget", "Soup"];
+2
+ 
+3
+const [, , thirdFood ] = favorites;
+4
+ 
+5
+console.log(thirdFood);
+6
+ 
+7
+/* output:
+8
+Nugget
+9
+*/
+ Input  Reset
+ Jalankan
+
+            
+
+
+Destructuring Assignment
+Kita juga bisa melakukan destructuring assignment pada array. Namun, tidak seperti object, kita tidak perlu membungkusnya dengan tanda kurung. Contohnya seperti berikut:
+
+main.js
+1
+const favorites = ["Seafood", "Salad", "Nugget", "Soup"];
+2
+ 
+3
+let myFood = "Ice Cream";
+4
+let herFood = "Noodles";
+5
+ 
+6
+[myFood, herFood] = favorites;
+7
+ 
+8
+console.log(myFood);
+9
+console.log(herFood);
+10
+ 
+11
+/* output:
+12
+Seafood
+13
+Salad
+14
+*/
+ Input  Reset
+ Jalankan
+
+            
+Array destructuring assignment sangat berguna ketika kita hendak menukar nilai antara dua variabel. Sebelum ES6, untuk melakukan hal ini kita menggunakan cara manual menggunakan algoritma sorting seperti ini:
+
+main.js
+1
+var a = 1;
+2
+var b = 2;
+3
+var temp;
+4
+ 
+5
+console.log("Sebelum swap");
+6
+console.log("Nilai a: " + a);
+7
+console.log("Nilai b: " + b);
+8
+ 
+9
+temp = a;
+10
+a = b;
+11
+b = temp;
+12
+ 
+13
+console.log("Setelah swap");
+14
+console.log("Nilai a: " + a);
+15
+console.log("Nilai b: " + b);
+16
+ 
+17
+/* output
+18
+Sebelum swap
+19
+Nilai a: 1
+20
+Nilai b: 2
+ Input  Reset
+ Jalankan
+
+            
+Untuk melakukan pertukaran nilai, kita membutuhkan variabel penengah. Pada contoh kode di atas menggunakan variabel temp. Variabel penengah dibutuhkan untuk menyimpan data sementara pada variabel yang akan ditukar. Hal ini menjadi kurang efektif karena kita harus membuat variabel baru yang sebenarnya hanya bersifat sementara.
+
+Dengan array destructuring assignment, kita bisa menukar nilai variabel dengan mudah tanpa membuat variabel tambahan.
+
+main.js
+1
+let a = 1;
+2
+let b = 2;
+3
+ 
+4
+console.log("Sebelum swap");
+5
+console.log("Nilai a: " + a);
+6
+console.log("Nilai b: " + b);
+7
+ 
+8
+[a, b] = [b, a]
+9
+ 
+10
+console.log("Setelah swap");
+11
+console.log("Nilai a: " + a);
+12
+console.log("Nilai b: " + b);
+13
+ 
+14
+/* output
+15
+Sebelum swap
+16
+Nilai a: 1
+17
+Nilai b: 2
+18
+Setelah swap
+19
+Nilai a: 2
+20
+Nilai b: 1
+ Input  Reset
+ Jalankan
+
+            
+
+
+Default Values
+Ketika melakukan destructuring array, tetapi terdapat variabel yang posisinya tidak dapat terjangkau oleh array, maka variabel tersebut akan bernilai undefined. Contohnya:
+
+const favorites = ["Seafood"];
+const [myFood, herFood] = favorites
+ 
+console.log(myFood);
+console.log(herFood);
+ 
+/* output:
+Seafood
+undefined
+*/
+Sama seperti object, pada destructuring array kita juga dapat memberikan nilai default pada variabel yang tidak dapat terjangkau oleh array, sehingga nilai pada variabel tidak akan menjadi undefined.
+
+main.js
+1
+const favorites = ["Seafood"];
+2
+ 
+3
+const [myFood, herFood = "Salad"] = favorites
+4
+ 
+5
+console.log(myFood);
+6
+console.log(herFood);
+7
+ 
+8
+/* output:
+9
+Seafood
+10
+Salad
+11
+*/
+ Input  Reset
+ Jalankan
+
+            

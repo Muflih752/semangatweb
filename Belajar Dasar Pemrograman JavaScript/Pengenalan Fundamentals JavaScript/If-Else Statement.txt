@@ -1,0 +1,225 @@
+If/Else Statement
+Setiap hari kita melakukan perhitungan dan perbandingan guna membuat keputusan, apa pun itu. Contohnya, apakah perlu mencuci kendaraan ketika cuaca sedang cerah? Apa saja transportasi online yang bisa dipesan ketika hujan untuk sampai di tempat tujuan?
+
+Ketika mengembangkan sebuah program, kita akan bertemu dengan alur bercabang tergantung pada kondisi yang terjadi. Untuk mengakomodasi dan mengecek sebuah kondisi dalam JavaScript, kita menggunakan kata kunci if.
+
+Statement if akan menguji suatu kondisi. Jika kondisi bernilai true, maka blok kode di dalamnya akan dijalankan. Sebaliknya, jika bernilai false, maka proses yang ditentukan akan dilewatkan.
+
+dos:30d8b7fa311ae403b1fe555b360ae52320220613105240.png
+
+Flowchart di atas jika diterjemahkan menjadi kode, akan menjadi seperti berikut:
+
+main.js
+const isRaining = true;
+
+console.log("Persiapan sebelum berangkat kegiatan.");
+if (isRaining) {
+    console.log("Hari ini hujan. Bawa payung.");
+}
+console.log("Berangkat kegiatan.");
+
+/* output:
+Persiapan sebelum berangkat kegiatan.
+Hari ini hujan. Bawa payung.
+Berangkat kegiatan.
+ */
+1
+const isRaining = true;
+2
+​
+3
+console.log("Persiapan sebelum berangkat kegiatan.");
+4
+if (isRaining) {
+5
+    console.log("Hari ini hujan. Bawa payung.");
+6
+}
+7
+console.log("Berangkat kegiatan.");
+8
+​
+9
+/* output:
+10
+Persiapan sebelum berangkat kegiatan.
+11
+Hari ini hujan. Bawa payung.
+12
+Berangkat kegiatan.
+13
+ */
+ Input  Reset
+ Jalankan
+Persiapan sebelum berangkat kegiatan.
+Hari ini hujan. Bawa payung.
+Berangkat kegiatan.
+Jika Anda mengubah nilai isRaining menjadi false, maka kode di dalam blok kode if akan dilewatkan. Sehingga program Anda tidak akan mengingatkan untuk membawa payung.
+
+Lalu bagaimana jika Anda ingin melakukan operasi lain ketika kondisi bernilai false? Jawabannya adalah statement else. Pada contoh kode berikut kita akan melakukan pengecekan kondisi menggunakan operator perbandingan.
+
+main.js
+1
+let x = 50;
+2
+​
+3
+if(x > 70) {
+4
+    console.log(x);
+5
+} else {
+6
+    console.log("Nilai kurang dari 70");
+7
+}
+8
+​
+9
+/* output
+10
+Nilai kurang dari 70
+11
+*/
+ Input  Reset
+ Jalankan
+
+            
+Terdapat variabel x dengan nilai 50, kemudian kita bertanya, “Hai JavaScript! Apakah x lebih dari 70?” Jika kondisi tersebut benar, maka kita dapat memerintahkan JavaScript untuk menampilkan nilainya. Jika salah, kita perintahkan JavaScript untuk menampilkan teks “Nilai kurang dari 70”.
+
+Kita juga bisa mengecek beberapa kondisi sekaligus dengan menggabungkan else dan if. Contohnya adalah seperti program berikut:
+
+main.js
+let language = "French";
+let greeting = "Selamat Pagi"
+
+if(language === "English") {
+    greeting = "Good Morning!";
+} else if(language === "French") {
+    greeting = "Bonjour!"
+} else if(language === "Japanese") {
+    greeting = "Ohayou Gozaimasu!"
+}
+
+console.log(greeting);
+
+/* output
+Bonjour!
+*/
+1
+let language = "French";
+2
+let greeting = "Selamat Pagi"
+3
+​
+4
+if(language === "English") {
+5
+    greeting = "Good Morning!";
+6
+} else if(language === "French") {
+7
+    greeting = "Bonjour!"
+8
+} else if(language === "Japanese") {
+9
+    greeting = "Ohayou Gozaimasu!"
+10
+}
+11
+​
+12
+console.log(greeting);
+13
+​
+14
+/* output
+15
+Bonjour!
+16
+*/
+ Input  Reset
+ Jalankan
+
+            
+Pengecekan kondisi akan dilakukan dari statement if paling awal. Sehingga, ketika nilai language adalah “French”, maka pengecekan untuk language === “Japanese” tidak akan dilakukan.
+
+Selain if statement di atas, JavaScript juga mendukung ternary operator atau conditional expressions. Dengan ini, kita bisa menuliskan if-else statement hanya dalam satu baris.
+
+main.js
+1
+// condition ? true expression : false expression
+2
+​
+3
+const isMember = false;
+4
+const discount = isMember ? 0.1 : 0;
+5
+console.log(`Anda mendapatkan diskon sebesar ${discount * 100}%`)
+6
+​
+7
+/* output
+8
+Anda mendapatkan diskon sebesar 0%
+9
+ */
+ Input  Reset
+ Jalankan
+Anda mendapatkan diskon sebesar 0%
+Ternary operator membutuhkan tiga operand. Sebelum tanda tanya (?) berisi kondisi yang ingin kita evaluasi. Kemudian diikuti dengan expression apabila nilai kondisinya benar sebelum tanda titik dua. Terakhir adalah expression yang dieksekusi ketika kondisinya salah. Karena merupakan conditional expression, maka operand kedua dan ketiga harus mengembalikan nilai.
+
+
+
+Truthy & Falsy
+Di dalam if statement kita perlu memasukkan expression yang akan dievaluasi. Umumnya, expression tersebut mengembalikan nilai boolean untuk menentukan kondisi true atau false. Lalu bagaimana jika kita menuliskan expression yang tidak mengembalikan nilai boolean? Jawabannya bisa.
+
+Setiap nilai pada JavaScript pada dasarnya juga mewarisi sifat boolean. Nilai ini dikenal dengan truthy atau falsy. Nilai truthy berarti nilai yang ketika dievaluasi akan menghasilkan nilai true, begitu pula falsy bernilai false. Jadi manakah yang termasuk truthy dan falsy? Selain nilai boolean false, tipe data atau nilai yang dianggap falsy, antara lain:
+
+Number 0
+BigInt 0n
+String kosong seperti “” atau ‘’
+null
+undefined
+NaN, atau Not a Number
+Selain contoh di atas maka nilainya adalah truthy dan ketika dievaluasi ke dalam if statement akan bernilai true. Berikut ini contohnya dalam kode:
+
+main.js
+let name = "";
+
+if (name) {
+    console.log(`Halo, ${name}`);
+} else {
+    console.log("Nama masih kosong");
+}
+
+/* output:
+Nama masih kosong
+ */
+1
+let name = "";
+2
+​
+3
+if (name) {
+4
+    console.log(`Halo, ${name}`);
+5
+} else {
+6
+    console.log("Nama masih kosong");
+7
+}
+8
+​
+9
+/* output:
+10
+Nama masih kosong
+11
+ */
+ Input  Reset
+ Jalankan
+
+            
